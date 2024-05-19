@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "443570736261",
+    "project_id": "capstone-prentice",
+    "storage_bucket": "capstone-prentice.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:443570736261:android:a4f0921a5646d970822dec",
+        "android_client_info": {
+          "package_name": "com.prenticedev.prenticeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "443570736261-lh7e5sc52akp99c5jknb08ahu5rra93m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.prenticedev.prenticeapp",
+            "certificate_hash": "705a4b07f5f1cb53d7c914f7e68d1479c910f654"
+          }
+        },
+        {
+          "client_id": "443570736261-10gtk23j6v4f8f0co720du1e5053mmf8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDMoZt9mYex4hum7qgaZXTlBLy_Th3VcXE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "443570736261-10gtk23j6v4f8f0co720du1e5053mmf8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

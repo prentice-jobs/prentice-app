@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">PrenticeApp</string>
+    <string name="app_title">Prentice</string>
+    <string name="btn_sign_guest">Sign in as Guest</string>
+    <string name="btn_sign_google">Sign In With Google</string>
+    <string name="app_slogan">Find your perfect internship</string>
+    <string name="img_signin_desc">Prentice Image Sign In</string>
+    <string name="web_client_id">443570736261-10gtk23j6v4f8f0co720du1e5053mmf8.apps.googleusercontent.com</string>
 </resources>
