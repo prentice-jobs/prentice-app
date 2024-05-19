@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.prenticedev.prenticeapp" />
+                  <option name="mobileSdkAppId" value="1:443570736261:android:a4f0921a5646d970822dec" />
+                  <option name="projectId" value="capstone-prentice" />
+                  <option name="projectNumber" value="443570736261" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
