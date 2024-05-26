@@ -1,9 +1,12 @@
+import org.jetbrains.kotlin.ir.backend.js.compile
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("com.google.gms.google-services")
     id("kotlin-parcelize")
 }
+
 
 android {
     namespace = "com.prenticedev.prenticeapp"
