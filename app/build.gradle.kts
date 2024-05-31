@@ -67,6 +67,7 @@ dependencies {
     implementation (libs.play.services.auth)
     implementation(libs.firebase.auth)
 
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

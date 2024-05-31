@@ -1,27 +1,14 @@
 package com.prenticedev.prenticeapp.ui
 
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.activity.OnBackPressedCallback
-import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.replace
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.bumptech.glide.Glide
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.firebase.auth.FirebaseAuth
 import com.prenticedev.prenticeapp.R
 import com.prenticedev.prenticeapp.databinding.ActivityMainBinding
 
