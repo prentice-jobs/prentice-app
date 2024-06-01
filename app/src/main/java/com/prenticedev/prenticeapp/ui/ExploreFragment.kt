@@ -1,60 +1,87 @@
 package com.prenticedev.prenticeapp.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.prenticedev.prenticeapp.R
+import com.prenticedev.prenticeapp.data.local.model.CompanyModel
+import com.prenticedev.prenticeapp.databinding.FragmentExploreBinding
+import com.prenticedev.prenticeapp.ui.adapter.SearchCompanyAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ExploreFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ExploreFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val list = ArrayList<CompanyModel>()
+    private lateinit var originalList: List<CompanyModel>
+    private lateinit var binding: FragmentExploreBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_explore, container, false)
+    ): View {
+        binding = FragmentExploreBinding.inflate(inflater, container, false)
+        list.addAll(getAlbumList())
+        originalList = ArrayList(list)
+        showRecyclerList()
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterResult(newText.orEmpty())
+                return true
+            }
+
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+        })
+
+
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ExploreFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ExploreFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    private fun filterResult(query: String) {
+        list.clear()
+        if (query.isEmpty()) {
+            list.addAll(originalList)
+        } else {
+            val filteredResult = originalList.filter {
+                it.companyName.contains(
+                    query,
+                    ignoreCase = true
+                ) || it.companyRating.contains(query, ignoreCase = true)
             }
+            list.addAll(filteredResult)
+        }
+        binding.rvCompanies.adapter?.notifyDataSetChanged()
     }
+
+    private fun showRecyclerList() {
+        binding.rvCompanies.layoutManager = LinearLayoutManager(activity)
+        val listCompanyAdapter = SearchCompanyAdapter(list)
+        binding.rvCompanies.adapter = listCompanyAdapter
+    }
+
+    private fun getAlbumList(): ArrayList<CompanyModel> {
+        val companyName = resources.getStringArray(R.array.company_name)
+        val companyRating = resources.getStringArray(R.array.company_rating)
+        val companyLogo = resources.obtainTypedArray(R.array.company_logo)
+        val companyCategory = resources.getStringArray(R.array.company_category)
+
+        val listCompany = ArrayList<CompanyModel>()
+        for (i in companyName.indices) {
+            val company = CompanyModel(
+                companyName[i],
+                companyCategory[i],
+                companyRating[i],
+                companyLogo.getResourceId(i, -1),
+            )
+            listCompany.add(company)
+        }
+        return listCompany
+    }
+
 }

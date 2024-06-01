@@ -34,7 +34,7 @@ class SignInActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        supportActionBar?.setDisplayShowTitleEnabled(false)
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
         if (currentUser != null) {

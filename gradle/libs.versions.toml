@@ -20,6 +20,7 @@ playServicesAuth = "19.2.0"
 retrofit = "2.9.0"
 googleGmsGoogleServices = "4.4.1"
 firebaseAuth = "23.0.0"
+searchfilter = "v1.0.4"
 securityCredentialManager = "1.1.0"
 
 
@@ -46,6 +47,7 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+searchfilter = { module = "com.github.Yalantis:SearchFilter", version.ref = "searchfilter" }
 
 
 [plugins]

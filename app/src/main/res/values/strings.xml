@@ -11,4 +11,60 @@
     <string name="app_slogan">Find your perfect internship</string>
     <string name="img_signin_desc">Prentice Image Sign In</string>
     <string name="web_client_id">443570736261-10gtk23j6v4f8f0co720du1e5053mmf8.apps.googleusercontent.com</string>
+    <string name="tv_app_title">Prentice</string>
+    <string name="app_icon">App Logo</string>
+    <string name="btn_startup">Startup</string>
+    <string name="btn_bumn">BUMN</string>
+    <string name="btn_finance">Finance</string>
+    <string name="btn_fmcg">FMCG</string>
+    <string name="btn_govt">GOVT</string>
+    <string name="btn_compare">Compare</string>
+
+    <string-array name="company_name">
+        <item>Prentice Corp.</item>
+        <item>Gojek</item>
+        <item>Grab</item>
+        <item>Maxim</item>
+        <item>InDriver</item>
+
+        <item>Kominfo</item>
+        <item>Dirjen Pajak</item>
+    </string-array>
+    <integer-array name="company_logo">
+        <item>@drawable/prentice_logo</item>
+        <item>@drawable/gojek_logo</item>
+        <item>@drawable/grab_logo</item>
+        <item>@drawable/maxim_logo</item>
+        <item>@drawable/indriver_logo</item>
+
+        <item>@drawable/kominfo_logo</item>
+        <item>@drawable/djp_logo</item>
+    </integer-array>
+
+    <string name="tab_text_1">Role 1</string>
+    <string name="tab_text_2">Role 2</string>
+    <string name="text_company_title">Gojek</string>
+    <string name="text_company_name">Company Name</string>
+    <string name="text_rating_value">7.6</string>
+    <string name="text_add_review_button">Add Review</string>
+
+    <string-array name="company_rating">
+        <item>4.5</item>
+        <item>4.6</item>
+        <item>4.7</item>
+        <item>4.8</item>
+        <item>4.9</item>
+        <item>4.9</item>
+        <item>4.9</item>
+    </string-array>
+    <string-array name="company_category">
+        <item>Startup</item>
+        <item>Startup</item>
+        <item>Startup</item>
+        <item>Startup</item>
+        <item>Startup</item>
+
+        <item>GOVT</item>
+        <item>GOVT</item>
+    </string-array>
 </resources>
