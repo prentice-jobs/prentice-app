@@ -11,4 +11,68 @@
     <string name="app_slogan">Find your perfect internship</string>
     <string name="img_signin_desc">Prentice Image Sign In</string>
     <string name="web_client_id">443570736261-10gtk23j6v4f8f0co720du1e5053mmf8.apps.googleusercontent.com</string>
+    <string-array name="company_name">
+        <item>Gojek</item>
+        <item>Gojek</item>
+        <item>Gojek</item>
+        <item>Gojek</item>
+        <item>Gojek</item>
+        <item>Gojek</item>
+        <item>Gojek</item>
+        <item>Gojek</item>
+        <item>Gojek</item>
+        <item>Gojek</item>
+    </string-array>
+
+    <string-array name="company_location">
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+    </string-array>
+
+    <string-array name="company_postdate">
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+    </string-array>
+
+    <string-array name="review_title">
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+    </string-array>
+
+    <string-array name="review_content">
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+    </string-array>
 </resources>
