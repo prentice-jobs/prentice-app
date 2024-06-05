@@ -2,9 +2,6 @@ package com.prenticedev.prenticeapp.ui.customview
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.Paint
-import android.graphics.RectF
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
 
