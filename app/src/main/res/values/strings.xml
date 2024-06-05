@@ -26,7 +26,6 @@
         <item>Grab</item>
         <item>Maxim</item>
         <item>InDriver</item>
-
         <item>Kominfo</item>
         <item>Dirjen Pajak</item>
     </string-array>
@@ -36,7 +35,6 @@
         <item>@drawable/grab_logo</item>
         <item>@drawable/maxim_logo</item>
         <item>@drawable/indriver_logo</item>
-
         <item>@drawable/kominfo_logo</item>
         <item>@drawable/djp_logo</item>
     </integer-array>
@@ -47,6 +45,11 @@
     <string name="text_company_name">Company Name</string>
     <string name="text_rating_value">7.6</string>
     <string name="text_add_review_button">Add Review</string>
+    <string name="tv_review_title">Tempat review yang bagus</string>
+    <string name="text_user_profile">User Profile</string>
+    <string name="text_prefered_location">Prefered Location</string>
+    <string name="text_save_changes">Save Changes</string>
+    <string name="text_sign_out">Sign Out</string>
 
     <string-array name="company_rating">
         <item>4.5</item>
@@ -63,8 +66,94 @@
         <item>Startup</item>
         <item>Startup</item>
         <item>Startup</item>
+        <item>GOVT</item>
+        <item>GOVT</item>
+    </string-array>
 
-        <item>GOVT</item>
-        <item>GOVT</item>
+
+    <!--    For Company Review Section-->
+    <string-array name="users_photo">
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+    </string-array>
+    <string-array name="users">
+        <item>Mamat</item>
+        <item>Ilham</item>
+        <item>Karto</item>
+        <item>Yudi</item>
+        <item>Bambang</item>
+        <item>Bagas</item>
+        <item>Yanto</item>
+        <item>Yanti</item>
+        <item>Mukhlis</item>
+        <item>Bustomi</item>
+    </string-array>
+    <string-array name="users_location">
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Balikpapan</item>
+        <item>Bandung</item>
+        <item>Surabaya</item>
+        <item>Surabaya</item>
+        <item>Madura</item>
+        <item>Banyuwangi</item>
+        <item>Jakarta</item>
+        <item>Jember</item>
+    </string-array>
+    <string-array name="users_role">
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+    </string-array>
+    <string-array name="users_status">
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+    </string-array>
+    <string-array name="users_review_title">
+        <item>HIGHLY RECOMENDED!</item>
+        <item>Betah banget magang disini!</item>
+        <item>Jarang ada company yg sebaik ini</item>
+        <item>Ugh 🤮</item>
+        <item>Great place to push yourself even better</item>
+        <item>MANTAPP!!</item>
+        <item>lorem ingsun dulur</item>
+        <item>HAHAY</item>
+        <item>HIHIY</item>
+        <item>LOREM</item>
+    </string-array>
+    <string-array name="users_review_content">
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
     </string-array>
 </resources>

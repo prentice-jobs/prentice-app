@@ -1,46 +1,60 @@
 package com.prenticedev.prenticeapp.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.prenticedev.prenticeapp.R
+import com.bumptech.glide.Glide
 import com.prenticedev.prenticeapp.data.local.model.CompanyModel
+import com.prenticedev.prenticeapp.databinding.RvItemCompanyExploreBinding
+import com.prenticedev.prenticeapp.ui.CompanyExploreDetailActivity
 
-class SearchCompanyAdapter(private val listCompanies: ArrayList<CompanyModel>) :
-    RecyclerView.Adapter<SearchCompanyAdapter.MyViewHolder>() {
-    private lateinit var onItemCallback: OnItemCallback
-
-    interface OnItemCallback {
-        fun onItemClicked(data: CompanyModel)
-    }
-
-    class MyViewHolder(itemview: View) : RecyclerView.ViewHolder(itemview) {
-        val companyName: TextView = itemview.findViewById(R.id.TvCompanyName)
-        val companyCategory: TextView = itemview.findViewById(R.id.tvCompanyCategory)
-        val companyRating: TextView = itemview.findViewById(R.id.tvRatingValue)
-        val companyLogo: ImageView = itemview.findViewById(R.id.imCompany)
-
+class SearchCompanyAdapter() : ListAdapter<CompanyModel, SearchCompanyAdapter.MyViewHolder>(
+    DIFF_CALLBACK
+) {
+    class MyViewHolder(private val binding: RvItemCompanyExploreBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: CompanyModel) {
+            Glide.with(itemView.context).load(item.logo).into(binding.imCompany)
+            binding.TvCompanyName.text = item.companyName
+            binding.tvCompanyCategory.text = item.companyCategory
+            binding.tvRatingValue.text = item.companyRating
+            with(itemView) {
+                setOnClickListener {
+                    Intent(context, CompanyExploreDetailActivity::class.java).apply {
+                        context.startActivity(this)
+                    }
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): SearchCompanyAdapter.MyViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.rv_item_company_explore, parent, false)
-        return MyViewHolder(view)
+        val binding =
+            RvItemCompanyExploreBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: SearchCompanyAdapter.MyViewHolder, position: Int) {
-        val (companyName, companyCategory, companyRating, imCompany) = listCompanies[position]
-        holder.companyName.text =companyName
-        holder.companyCategory.text = companyCategory
-        holder.companyRating.text = companyRating
-        holder.companyLogo.setImageResource(imCompany)
+        val companies = getItem(position)
+        holder.bind(companies)
     }
 
-    override fun getItemCount(): Int = listCompanies.size
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<CompanyModel>() {
+            override fun areContentsTheSame(oldItem: CompanyModel, newItem: CompanyModel): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areItemsTheSame(oldItem: CompanyModel, newItem: CompanyModel): Boolean {
+                return oldItem == newItem
+            }
+        }
+    }
+
 }

@@ -11,24 +11,35 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
         android:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/main">
 
         <ImageView
             android:id="@+id/appIcon"
             android:layout_width="30dp"
+            android:layout_height="30dp"
             android:contentDescription="@string/app_icon"
-            android:src="@drawable/prentice_logo"
-            android:layout_height="30dp"/>
+            android:src="@drawable/prentice_logo" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"
             android:layout_marginStart="30dp"
-            android:text="@string/tv_app_title"/>
+            android:text="@string/tv_app_title"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="245dp"
+            android:layout_height="match_parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imUserProfile"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/baseline_account_circle_24" />
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.fragment.app.FragmentContainerView

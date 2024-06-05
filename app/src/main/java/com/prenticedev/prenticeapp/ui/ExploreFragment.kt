@@ -23,7 +23,7 @@ class ExploreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentExploreBinding.inflate(inflater, container, false)
-        list.addAll(getAlbumList())
+        list.addAll(getCompanyList())
         originalList = ArrayList(list)
         showRecyclerList()
 
@@ -61,11 +61,12 @@ class ExploreFragment : Fragment() {
 
     private fun showRecyclerList() {
         binding.rvCompanies.layoutManager = LinearLayoutManager(activity)
-        val listCompanyAdapter = SearchCompanyAdapter(list)
+        val listCompanyAdapter = SearchCompanyAdapter()
+        listCompanyAdapter.submitList(list)
         binding.rvCompanies.adapter = listCompanyAdapter
     }
 
-    private fun getAlbumList(): ArrayList<CompanyModel> {
+    private fun getCompanyList(): ArrayList<CompanyModel> {
         val companyName = resources.getStringArray(R.array.company_name)
         val companyRating = resources.getStringArray(R.array.company_rating)
         val companyLogo = resources.obtainTypedArray(R.array.company_logo)
