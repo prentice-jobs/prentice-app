@@ -60,6 +60,10 @@ dependencies {
     implementation(libs.androidx.credentials.play.services.auth)
 
 
+    implementation(libs.glide)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
 
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)

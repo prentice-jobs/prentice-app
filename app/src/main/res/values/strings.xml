@@ -19,6 +19,59 @@
     <string name="btn_fmcg">FMCG</string>
     <string name="btn_govt">GOVT</string>
     <string name="btn_compare">Compare</string>
+  
+  
+    <string-array name="company_location">
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+    </string-array>
+
+    <string-array name="company_postdate">
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+    </string-array>
+
+    <string-array name="review_title">
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+    </string-array>
+
+    <string-array name="review_content">
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+    
 
     <string-array name="company_name">
         <item>Prentice Corp.</item>
