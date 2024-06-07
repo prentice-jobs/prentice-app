@@ -4,53 +4,58 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.prenticedev.prenticeapp.R
-import com.prenticedev.prenticeapp.data.dummydata.Company
-import com.prenticedev.prenticeapp.databinding.FragmentForyouBinding
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.prenticedev.prenticeapp.R
+import com.prenticedev.prenticeapp.data.local.model.ReviewModel
 import com.prenticedev.prenticeapp.databinding.FragmentForyouBinding
+import com.prenticedev.prenticeapp.ui.adapter.ReviewCompanyAdapter
+
 
 class ForyouFragment : Fragment() {
     private lateinit var binding: FragmentForyouBinding
-    private val list = ArrayList<Company>()
-    
+    private val list = ArrayList<ReviewModel>()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentForyouBinding.inflate(inflater, container, false)
-        list.addAll(getListCompany())
         showRecyclerList()
-        binding.rvForyou.setHasFixedSize(true)
-        binding.rvForyou.layoutManager = LinearLayoutManager(context)
-
         return binding.root
-
     }
-    
-    
-    
-private fun showRecyclerList() {
-        val listCompanyAdapter = ListCompanyAdapter(list)
-        binding.rvForyou.adapter = listCompanyAdapter
+    private fun showRecyclerList() {
+        binding.rvForyou.layoutManager = LinearLayoutManager(activity)
+        list.addAll(getReviewData())
+        val reviewAdapter = ReviewCompanyAdapter()
+        reviewAdapter.submitList(list)
+        binding.rvForyou.adapter =reviewAdapter
     }
-    
-private fun getListCompany(): ArrayList<Company> {
-        val companyName = resources.getStringArray(R.array.company_name)
-        val companyLocation = resources.getStringArray(R.array.company_location)
-        val companyPostDate = resources.getStringArray(R.array.company_postdate)
-        val reviewTitle = resources.getStringArray(R.array.review_title)
-        val reviewContent = resources.getStringArray(R.array.review_content)
 
-        val listCompany = ArrayList<Company>()
-        for (i in companyName.indices) {
-            val company = Company(companyName[i], companyLocation[i], companyPostDate[i], reviewTitle[i], reviewContent[i])
-            listCompany.add(company)
+    private fun getReviewData(): ArrayList<ReviewModel> {
+        val imUser = resources.obtainTypedArray(R.array.users_photo)
+        val name = resources.getStringArray(R.array.users)
+        val location = resources.getStringArray(R.array.users_location)
+        val role = resources.getStringArray(R.array.users_role)
+        val status = resources.getStringArray(R.array.users_status)
+        val reviewTitle = resources.getStringArray(R.array.users_review_title)
+        val reviewContent = resources.getStringArray(R.array.users_review_content)
+
+        val listReviews = ArrayList<ReviewModel>()
+        for (i in name.indices) {
+            val reviews = ReviewModel(
+                imUser.getResourceId(i, -1),
+                name[i],
+                location[i],
+                role[i],
+                status[i],
+                reviewTitle[i],
+                reviewContent[i]
+            )
+            listReviews.add(reviews)
         }
-        return listCompany
+        return listReviews
     }
 
 

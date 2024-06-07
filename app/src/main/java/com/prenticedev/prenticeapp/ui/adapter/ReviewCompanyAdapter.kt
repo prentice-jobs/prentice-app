@@ -1,5 +1,6 @@
 package com.prenticedev.prenticeapp.ui.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.prenticedev.prenticeapp.data.local.model.ReviewModel
 import com.prenticedev.prenticeapp.databinding.RvItemCompanyReviewBinding
+import com.prenticedev.prenticeapp.ui.DetailReviewActivity
 
 class ReviewCompanyAdapter : ListAdapter<ReviewModel, ReviewCompanyAdapter.MyViewHolder>(
     DIFF_CALLBACK
@@ -22,6 +24,13 @@ class ReviewCompanyAdapter : ListAdapter<ReviewModel, ReviewCompanyAdapter.MyVie
             binding.tvUserLoc.text = item.location
             binding.tvReviewTitle.text = item.reviewTitle
             binding.tvReviewContent.text = item.reviewContent
+            with(itemView) {
+                setOnClickListener {
+                    Intent(context, DetailReviewActivity::class.java).apply {
+                        context.startActivity(this)
+                    }
+                }
+            }
         }
     }
 

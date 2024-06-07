@@ -21,7 +21,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <ImageButton
+            <ImageView
+                android:id="@+id/btnBack"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_marginTop="3dp"
@@ -93,6 +94,7 @@
         android:id="@+id/spinRole"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:entries="@array/spinner_items"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
@@ -140,13 +142,43 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/uploadRemind"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
         android:layout_marginStart="30dp"
         android:text="Upload Your Offer Letter"
         android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-<!--    Make a upload file custom view-->
+    <!--    Make a upload file custom view-->
+    <TextView
+        android:id="@+id/tvFileName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="30dp"
+        android:text="@string/text_attachment_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/uploadRemind" />
+
+    <Button
+        android:id="@+id/btnAddOffer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toEndOf="@id/tvFileName"
+        android:text="@string/btn_add_offer_letter"
+        app:layout_constraintTop_toBottomOf="@+id/uploadRemind" />
+
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="Submit"
+        app:layout_constraintTop_toBottomOf="@id/btnAddOffer" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

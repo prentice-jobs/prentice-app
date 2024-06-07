@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.chip.Chip
 import com.prenticedev.prenticeapp.R
 import com.prenticedev.prenticeapp.data.local.model.CompanyModel
 import com.prenticedev.prenticeapp.databinding.FragmentExploreBinding
@@ -27,6 +28,51 @@ class ExploreFragment : Fragment() {
         originalList = ArrayList(list)
         showRecyclerList()
 
+        setupSearchView()
+        setupChipFilter()
+
+//        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                filterResult(newText.orEmpty())
+//                return true
+//            }
+//
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                return true
+//            }
+//        })
+
+
+        return binding.root
+    }
+
+    private fun setupChipFilter() {
+        binding.quickF.setOnCheckedStateChangeListener { group, checkedId ->
+            val selectedCategory = checkedId.map { id ->
+                val selectedChip = group.findViewById<Chip>(id)
+                selectedChip?.text?.toString() ?: ""
+            }
+            filterByCategory(selectedCategory)
+
+        }
+    }
+
+    private fun filterByCategory(category: List<String>) {
+        list.clear()
+        if (category.isEmpty()) {
+            list.addAll(originalList)
+        } else {
+            val filteredResult = originalList.filter { company ->
+                category.any { category ->
+                    company.companyCategory.equals(category, ignoreCase = true)
+                }
+            }
+            list.addAll(filteredResult)
+        }
+        binding.rvCompanies.adapter?.notifyDataSetChanged()
+    }
+
+    private fun setupSearchView() {
         binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String?): Boolean {
                 filterResult(newText.orEmpty())
@@ -37,10 +83,6 @@ class ExploreFragment : Fragment() {
                 return true
             }
         })
-
-
-
-        return binding.root
     }
 
     private fun filterResult(query: String) {

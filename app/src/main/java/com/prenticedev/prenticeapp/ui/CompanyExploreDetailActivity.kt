@@ -30,7 +30,12 @@ class CompanyExploreDetailActivity : AppCompatActivity() {
             startActivity(Intent(this, ReviewActivity::class.java))
         }
         showRVData()
+
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
     }
+
 
     private fun showRVData() {
         binding.rvReviews.layoutManager = LinearLayoutManager(this)

@@ -15,6 +15,12 @@
         android:theme="@style/Theme.PrenticeApp"
         tools:targetApi="31">
         <activity
+            android:name=".ui.CommentReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.DetailReviewActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.UserProfileActivity"
             android:exported="false" />
         <activity

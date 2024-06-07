@@ -16,18 +16,10 @@
             android:layout_height="60dp"
             android:hint="search here"
             app:iconifiedByDefault="false"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:queryHint="Cari Disini" />
-
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@color/white"
-            android:src="@drawable/baseline_filter_list_24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/searchView"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvQuickF"
@@ -40,82 +32,54 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchView" />
 
-        <HorizontalScrollView
+        <com.google.android.material.chip.ChipGroup
             android:id="@+id/quickF"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:scrollbars="none"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvQuickF">
 
-            <LinearLayout
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btnStartup"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingHorizontal="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
+                android:text="@string/btn_startup" />
 
-                <Button
-                    android:id="@+id/btnStartup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/filter_button_layout"
-                    android:text="@string/btn_startup"
-                    android:textSize="12sp" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btnBUMN"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_bumn"
+                android:textSize="12sp" />
 
-                <Space
-                    android:layout_width="8dp"
-                    android:layout_height="wrap_content" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btnFinance"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_finance"
+                android:textSize="12sp" />
 
-                <Button
-                    android:id="@+id/btnBUMN"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/filter_button_layout"
-                    android:text="@string/btn_bumn"
-                    android:textSize="12sp" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btnFMCG"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_fmcg"
+                android:textSize="12sp" />
 
-                <Space
-                    android:layout_width="8dp"
-                    android:layout_height="wrap_content" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/btnGovt"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_govt"
+                android:textSize="12sp" />
 
-                <Button
-                    android:id="@+id/btnFinance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/filter_button_layout"
-                    android:text="@string/btn_finance"
-                    android:textSize="12sp" />
-
-                <Space
-                    android:layout_width="8dp"
-                    android:layout_height="wrap_content" />
-
-                <Button
-                    android:id="@+id/btnFMCG"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/filter_button_layout"
-                    android:text="@string/btn_fmcg"
-                    android:textSize="12sp" />
-
-                <Space
-                    android:layout_width="8dp"
-                    android:layout_height="wrap_content" />
-
-                <Button
-                    android:id="@+id/btnGovt"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/filter_button_layout"
-                    android:text="@string/btn_govt"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-        </HorizontalScrollView>
+        </com.google.android.material.chip.ChipGroup>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCompanies"

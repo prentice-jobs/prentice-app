@@ -71,7 +71,7 @@
         <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
         <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
         <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
-    
+    </string-array>
 
     <string-array name="company_name">
         <item>Prentice Corp.</item>
@@ -103,6 +103,24 @@
     <string name="text_prefered_location">Prefered Location</string>
     <string name="text_save_changes">Save Changes</string>
     <string name="text_sign_out">Sign Out</string>
+    <string name="btn_add_offer_letter">Pick Files</string>
+    <string name="text_attachment_name">No offer letter is attached</string>
+    <string name="text_review_detail">Review Detail</string>
+    <string name="text_review_company_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cumque deserunt eaque, eum nam rem soluta. Corporis eum laudantium minima. Blanditiis doloribus earum exercitationem fugit laboriosam maiores, minima temporibus totam?</string>
+    <string name="text_reviewer_role">Software Engineer</string>
+    <string name="text_reviewer_status">Intern</string>
+    <string name="text_comment_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad eos est repellendus voluptate. Aliquam cumque deserunt distinctio eos error excepturi expedita magni nesciunt, non, numquam possimus reprehenderit, tempore temporibus.</string>
+    <string name="txt_comment_time">1w ago</string>
+    <string name="text_like_val">7</string>
+    <string name="text_add_comment">Add Review Comment</string>
+    <string name="text_select_your_role">Select your role!</string>
+
+    <string-array name="spinner_items">
+        <item>Web Developer</item>
+        <item>Database Administrator</item>
+        <item>Mobile Developer</item>
+        <item>QA Engineer</item>
+    </string-array>
 
     <string-array name="company_rating">
         <item>4.5</item>

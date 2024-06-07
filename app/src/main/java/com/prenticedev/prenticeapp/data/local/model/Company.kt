@@ -1,4 +1,4 @@
-package com.prenticedev.prenticeapp.data.dummydata
+package com.prenticedev.prenticeapp.data.local.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

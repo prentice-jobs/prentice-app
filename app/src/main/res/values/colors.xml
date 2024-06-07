@@ -16,4 +16,6 @@
     <color name="purple_700">#69146a</color>
     <color name="purple_800">#5b0e62</color>
     <color name="purple_900">#430355</color>
+
+    <color name="btn_color">#FFFF</color>
 </resources>

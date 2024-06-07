@@ -16,13 +16,13 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.prenticedev.prenticeapp.R
-
 import com.prenticedev.prenticeapp.databinding.ActivitySignInBinding
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
     private lateinit var auth: FirebaseAuth
     private val signInID = 100
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
@@ -37,6 +37,8 @@ class SignInActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
+
+
         if (currentUser != null) {
             val intent = Intent(this@SignInActivity, MainActivity::class.java)
             startActivity(intent)
@@ -77,6 +79,14 @@ class SignInActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     val user = auth.currentUser
+                    user?.getIdToken(true)?.addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            val idToken = task.result?.token
+                            Log.d(TAG, "Token Firebase: $idToken")
+                        } else {
+                            Log.w(TAG, "Failed to retrieve token", task.exception)
+                        }
+                    }
                     print(user)
                     updateUI(user)
                 } else {
