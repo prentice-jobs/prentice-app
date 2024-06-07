@@ -19,6 +19,59 @@
     <string name="btn_fmcg">FMCG</string>
     <string name="btn_govt">GOVT</string>
     <string name="btn_compare">Compare</string>
+  
+  
+    <string-array name="company_location">
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+    </string-array>
+
+    <string-array name="company_postdate">
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+        <item>2 week ago</item>
+    </string-array>
+
+    <string-array name="review_title">
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+        <item>Tempat yang bagus buat mulai karir</item>
+    </string-array>
+
+    <string-array name="review_content">
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+        <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
+    </string-array>
 
     <string-array name="company_name">
         <item>Prentice Corp.</item>
@@ -26,7 +79,6 @@
         <item>Grab</item>
         <item>Maxim</item>
         <item>InDriver</item>
-
         <item>Kominfo</item>
         <item>Dirjen Pajak</item>
     </string-array>
@@ -36,7 +88,6 @@
         <item>@drawable/grab_logo</item>
         <item>@drawable/maxim_logo</item>
         <item>@drawable/indriver_logo</item>
-
         <item>@drawable/kominfo_logo</item>
         <item>@drawable/djp_logo</item>
     </integer-array>
@@ -47,6 +98,29 @@
     <string name="text_company_name">Company Name</string>
     <string name="text_rating_value">7.6</string>
     <string name="text_add_review_button">Add Review</string>
+    <string name="tv_review_title">Tempat review yang bagus</string>
+    <string name="text_user_profile">User Profile</string>
+    <string name="text_prefered_location">Prefered Location</string>
+    <string name="text_save_changes">Save Changes</string>
+    <string name="text_sign_out">Sign Out</string>
+    <string name="btn_add_offer_letter">Pick Files</string>
+    <string name="text_attachment_name">No offer letter is attached</string>
+    <string name="text_review_detail">Review Detail</string>
+    <string name="text_review_company_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cumque deserunt eaque, eum nam rem soluta. Corporis eum laudantium minima. Blanditiis doloribus earum exercitationem fugit laboriosam maiores, minima temporibus totam?</string>
+    <string name="text_reviewer_role">Software Engineer</string>
+    <string name="text_reviewer_status">Intern</string>
+    <string name="text_comment_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad eos est repellendus voluptate. Aliquam cumque deserunt distinctio eos error excepturi expedita magni nesciunt, non, numquam possimus reprehenderit, tempore temporibus.</string>
+    <string name="txt_comment_time">1w ago</string>
+    <string name="text_like_val">7</string>
+    <string name="text_add_comment">Add Review Comment</string>
+    <string name="text_select_your_role">Select your role!</string>
+
+    <string-array name="spinner_items">
+        <item>Web Developer</item>
+        <item>Database Administrator</item>
+        <item>Mobile Developer</item>
+        <item>QA Engineer</item>
+    </string-array>
 
     <string-array name="company_rating">
         <item>4.5</item>
@@ -63,8 +137,94 @@
         <item>Startup</item>
         <item>Startup</item>
         <item>Startup</item>
+        <item>GOVT</item>
+        <item>GOVT</item>
+    </string-array>
 
-        <item>GOVT</item>
-        <item>GOVT</item>
+
+    <!--    For Company Review Section-->
+    <string-array name="users_photo">
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+        <item>@drawable/baseline_profile_circle_24</item>
+    </string-array>
+    <string-array name="users">
+        <item>Mamat</item>
+        <item>Ilham</item>
+        <item>Karto</item>
+        <item>Yudi</item>
+        <item>Bambang</item>
+        <item>Bagas</item>
+        <item>Yanto</item>
+        <item>Yanti</item>
+        <item>Mukhlis</item>
+        <item>Bustomi</item>
+    </string-array>
+    <string-array name="users_location">
+        <item>Jakarta</item>
+        <item>Jakarta</item>
+        <item>Balikpapan</item>
+        <item>Bandung</item>
+        <item>Surabaya</item>
+        <item>Surabaya</item>
+        <item>Madura</item>
+        <item>Banyuwangi</item>
+        <item>Jakarta</item>
+        <item>Jember</item>
+    </string-array>
+    <string-array name="users_role">
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+        <item>Software Engineer</item>
+    </string-array>
+    <string-array name="users_status">
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+        <item>Intern</item>
+    </string-array>
+    <string-array name="users_review_title">
+        <item>HIGHLY RECOMENDED!</item>
+        <item>Betah banget magang disini!</item>
+        <item>Jarang ada company yg sebaik ini</item>
+        <item>Ugh 🤮</item>
+        <item>Great place to push yourself even better</item>
+        <item>MANTAPP!!</item>
+        <item>lorem ingsun dulur</item>
+        <item>HAHAY</item>
+        <item>HIHIY</item>
+        <item>LOREM</item>
+    </string-array>
+    <string-array name="users_review_content">
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
+        <item>>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi consequuntur inventore labore maxime minima neque numquam perspiciatis praesentium quia vitae? </item>
     </string-array>
 </resources>

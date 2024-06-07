@@ -4,6 +4,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="forTitle">#E51F1F</color>
 
+    <color name="grey">#DFDEDE</color>
+
     <color name="purple_50">#ede3eb</color>
     <color name="purple_100">#d4bad0</color>
     <color name="purple_200">#b98eb1</color>
@@ -14,4 +16,6 @@
     <color name="purple_700">#69146a</color>
     <color name="purple_800">#5b0e62</color>
     <color name="purple_900">#430355</color>
+
+    <color name="btn_color">#FFFF</color>
 </resources>
