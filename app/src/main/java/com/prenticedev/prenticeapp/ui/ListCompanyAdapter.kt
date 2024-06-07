@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.prenticedev.prenticeapp.R
-import com.prenticedev.prenticeapp.data.dummydata.Company
+import com.prenticedev.prenticeapp.data.local.model.Company
 import com.prenticedev.prenticeapp.databinding.ItemCompanyBinding
 
 class ListCompanyAdapter(private val listCompany: ArrayList<Company>) : RecyclerView.Adapter<ListCompanyAdapter.ListViewHolder>() {
