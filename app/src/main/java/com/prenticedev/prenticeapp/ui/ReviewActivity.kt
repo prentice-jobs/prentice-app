@@ -2,6 +2,7 @@ package com.prenticedev.prenticeapp.ui
 
 import android.net.Uri
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -32,6 +33,7 @@ class ReviewActivity : AppCompatActivity() {
         binding.btnAddOffer.setOnClickListener {
             openGallery()
         }
+
     }
 
     private fun openGallery() {
@@ -43,6 +45,8 @@ class ReviewActivity : AppCompatActivity() {
     ) { uri: Uri? ->
         if (uri != null) {
             currentImageUri = uri
+            binding.tvFileName.visibility = View.VISIBLE
+            binding.btnAddOffer.text = "Edit File"
         }
     }
 }

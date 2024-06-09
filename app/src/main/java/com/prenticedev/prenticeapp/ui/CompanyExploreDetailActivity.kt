@@ -30,10 +30,15 @@ class CompanyExploreDetailActivity : AppCompatActivity() {
             startActivity(Intent(this, ReviewActivity::class.java))
         }
         showRVData()
+        showSentimentScore()
 
         binding.btnBack.setOnClickListener {
             finish()
         }
+    }
+
+    private fun showSentimentScore() {
+        binding.barSentiment.setPercentage(50,50,50)
     }
 
 

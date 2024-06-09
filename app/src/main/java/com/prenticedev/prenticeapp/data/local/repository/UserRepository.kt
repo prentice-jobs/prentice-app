@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.Flow
 class UserRepository private constructor(
     private val userPreference: UserPreference
 ) {
-    suspend fun setSession(isLogin: UserModel) = userPreference.setSignInStatus(isLogin)
-    fun getSession(): Flow<Boolean> = userPreference.getSignInStatus()
+//    suspend fun setSession(isLogin: UserModel) = userPreference.setSignInStatus(isLogin)
+//    fun getSession(): Flow<Boolean> = userPreference.getSignInStatus()
 
     companion object {
         @Volatile

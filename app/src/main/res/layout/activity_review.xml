@@ -160,6 +160,9 @@
         android:layout_marginTop="8dp"
         android:layout_marginStart="30dp"
         android:text="@string/text_attachment_name"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:maxEms="12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/uploadRemind" />
 
@@ -171,6 +174,7 @@
         app:layout_constraintStart_toEndOf="@id/tvFileName"
         android:text="@string/btn_add_offer_letter"
         app:layout_constraintTop_toBottomOf="@+id/uploadRemind" />
+
 
     <Button
         android:layout_width="300dp"

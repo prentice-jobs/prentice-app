@@ -1,4 +1,6 @@
 package com.prenticedev.prenticeapp.ui.viewmodel
 
-class ForYouViewModel {
+import androidx.lifecycle.ViewModel
+
+class ForYouViewModel:ViewModel() {
 }

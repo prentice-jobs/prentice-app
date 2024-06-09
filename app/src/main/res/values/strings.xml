@@ -73,6 +73,12 @@
         <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
     </string-array>
 
+    <declare-styleable name="SentimentView">
+        <attr name="sentimentText" format="string" />
+        <attr name="sentimentScore" format="float" />
+        <attr name="sentimentColor" format="color" />
+    </declare-styleable>
+
     <string-array name="company_name">
         <item>Prentice Corp.</item>
         <item>Gojek</item>
@@ -104,7 +110,7 @@
     <string name="text_save_changes">Save Changes</string>
     <string name="text_sign_out">Sign Out</string>
     <string name="btn_add_offer_letter">Pick Files</string>
-    <string name="text_attachment_name">No offer letter is attached</string>
+    <string name="text_attachment_name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam at beatae distinctio dolorem eius ex exercitationem impedit in incidunt libero nesciunt provident, quam quis quisquam, repudiandae tenetur ut vel.</string>
     <string name="text_review_detail">Review Detail</string>
     <string name="text_review_company_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cumque deserunt eaque, eum nam rem soluta. Corporis eum laudantium minima. Blanditiis doloribus earum exercitationem fugit laboriosam maiores, minima temporibus totam?</string>
     <string name="text_reviewer_role">Software Engineer</string>
