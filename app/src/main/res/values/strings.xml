@@ -19,8 +19,8 @@
     <string name="btn_fmcg">FMCG</string>
     <string name="btn_govt">GOVT</string>
     <string name="btn_compare">Compare</string>
-  
-  
+
+
     <string-array name="company_location">
         <item>Jakarta</item>
         <item>Jakarta</item>
