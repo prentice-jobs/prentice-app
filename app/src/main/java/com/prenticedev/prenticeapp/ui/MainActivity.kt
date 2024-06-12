@@ -13,14 +13,15 @@ import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.prenticedev.prenticeapp.R
+import com.prenticedev.prenticeapp.data.remote.retrofit.ApiConfig
 import com.prenticedev.prenticeapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private var pressedBack = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ApiConfig.initialize(this)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         enableEdgeToEdge()

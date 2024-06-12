@@ -7,23 +7,24 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.prenticedev.prenticeapp.data.local.model.CompanyModel
+import com.prenticedev.prenticeapp.data.remote.response.CompanyResponseItem
 import com.prenticedev.prenticeapp.databinding.RvItemCompanyExploreBinding
 import com.prenticedev.prenticeapp.ui.CompanyExploreDetailActivity
 
-class SearchCompanyAdapter() : ListAdapter<CompanyModel, SearchCompanyAdapter.MyViewHolder>(
+class SearchCompanyAdapter() : ListAdapter<CompanyResponseItem, SearchCompanyAdapter.MyViewHolder>(
     DIFF_CALLBACK
 ) {
     class MyViewHolder(private val binding: RvItemCompanyExploreBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: CompanyModel) {
-            Glide.with(itemView.context).load(item.logo).into(binding.imCompany)
-            binding.TvCompanyName.text = item.companyName
-            binding.tvCompanyCategory.text = item.companyCategory
-            binding.tvRatingValue.text = item.companyRating
+        fun bind(item: CompanyResponseItem) {
+            Glide.with(itemView.context).load(item.logoUrl).into(binding.imCompany)
+            binding.TvCompanyName.text = item.displayName
+//            binding.tvCompanyCategory.text = item.tags
+            binding.tvRatingValue.text = item.starRating.toString()
             with(itemView) {
                 setOnClickListener {
                     Intent(context, CompanyExploreDetailActivity::class.java).apply {
+                        putExtra(CompanyExploreDetailActivity.EXTRA_ID, item.id)
                         context.startActivity(this)
                     }
                 }
@@ -46,12 +47,18 @@ class SearchCompanyAdapter() : ListAdapter<CompanyModel, SearchCompanyAdapter.My
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<CompanyModel>() {
-            override fun areContentsTheSame(oldItem: CompanyModel, newItem: CompanyModel): Boolean {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<CompanyResponseItem>() {
+            override fun areContentsTheSame(
+                oldItem: CompanyResponseItem,
+                newItem: CompanyResponseItem
+            ): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areItemsTheSame(oldItem: CompanyModel, newItem: CompanyModel): Boolean {
+            override fun areItemsTheSame(
+                oldItem: CompanyResponseItem,
+                newItem: CompanyResponseItem
+            ): Boolean {
                 return oldItem == newItem
             }
         }

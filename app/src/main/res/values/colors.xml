@@ -18,4 +18,5 @@
     <color name="purple_900">#430355</color>
 
     <color name="btn_color">#FFFF</color>
+    <color name="im_preview_color">#FF2196F3</color>
 </resources>

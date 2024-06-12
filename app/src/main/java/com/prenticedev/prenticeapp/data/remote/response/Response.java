@@ -1,4 +1,4 @@
-package com.prenticedev.prenticeapp.data.response;
+package com.prenticedev.prenticeapp.data.remote.response;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;

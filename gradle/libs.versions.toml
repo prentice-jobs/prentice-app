@@ -19,10 +19,12 @@ constraintlayout = "2.1.4"
 materialVersion = "1.12.0"
 navigationFragmentKtx = "2.7.7"
 navigationUiKtx = "2.7.7"
+pagingRuntimeKtx = "3.0.0"
 playServicesAuth = "19.2.0"
 retrofit = "2.9.0"
 googleGmsGoogleServices = "4.4.1"
 firebaseAuth = "23.0.0"
+searchablespinner = "1.0.0"
 searchablespinnerlibrary = "1.3.1"
 searchfilter = "v1.0.4"
 securityCredentialManager = "1.1.0"
@@ -36,6 +38,7 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-credentials = { module = "androidx.credentials:credentials", version.ref = "credentials" }
 androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentials" }
 androidx-datastore-preferences = { module = "androidx.datastore:datastore-preferences" }
+androidx-paging-runtime-ktx = { module = "androidx.paging:paging-runtime-ktx", version.ref = "pagingRuntimeKtx" }
 androidx-security-credential-manager = { module = "androidx.security:security-credential-manager", version.ref = "securityCredentialManager" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "converterGson" }
 datastore-z = { module = "androidx.datastore:datastore-*", version.ref = "datastoreZVersion" }
@@ -58,6 +61,7 @@ material-v1120 = { module = "com.google.android.material:material", version.ref 
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version.ref = "firebaseAuth" }
+searchablespinner = { module = "com.github.chetan532:SearchableSpinner", version.ref = "searchablespinner" }
 searchablespinnerlibrary = { module = "com.toptoche.searchablespinner:searchablespinnerlibrary", version.ref = "searchablespinnerlibrary" }
 searchfilter = { module = "com.github.Yalantis:SearchFilter", version.ref = "searchfilter" }
 androidx-datastore = { group = "androidx.datastore", name = "datastore", version.ref = "datastore" }

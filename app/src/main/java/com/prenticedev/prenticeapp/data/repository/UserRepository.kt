@@ -1,5 +1,7 @@
-package com.prenticedev.prenticeapp.data.local.repository
+package com.prenticedev.prenticeapp.data.repository
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
 import com.prenticedev.prenticeapp.data.local.pref.UserModel
 import com.prenticedev.prenticeapp.data.local.pref.UserPreference
 import kotlinx.coroutines.flow.Flow
@@ -7,8 +9,12 @@ import kotlinx.coroutines.flow.Flow
 class UserRepository private constructor(
     private val userPreference: UserPreference
 ) {
-//    suspend fun setSession(isLogin: UserModel) = userPreference.setSignInStatus(isLogin)
-//    fun getSession(): Flow<Boolean> = userPreference.getSignInStatus()
+
+    suspend fun saveSession(user: UserModel) = userPreference.saveSession(user)
+    fun getSession(): Flow<UserModel> = userPreference.getSession()
+    fun getToken(): LiveData<String> = userPreference.getToken().asLiveData()
+    fun getName(): LiveData<String> = userPreference.getName().asLiveData()
+    suspend fun logout() = userPreference.logOut()
 
     companion object {
         @Volatile
