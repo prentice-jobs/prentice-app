@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
                         "Please click BACK again to exit",
                         Toast.LENGTH_SHORT
                     ).show()
-                    view?.postDelayed({ pressedBack = false }, 2000)
+                    view.postDelayed({ pressedBack = false }, 2000)
                 }
             }
         }

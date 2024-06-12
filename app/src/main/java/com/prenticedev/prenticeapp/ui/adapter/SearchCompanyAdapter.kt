@@ -35,13 +35,13 @@ class SearchCompanyAdapter() : ListAdapter<CompanyResponseItem, SearchCompanyAda
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): SearchCompanyAdapter.MyViewHolder {
+    ): MyViewHolder {
         val binding =
             RvItemCompanyExploreBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: SearchCompanyAdapter.MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val companies = getItem(position)
         holder.bind(companies)
     }
