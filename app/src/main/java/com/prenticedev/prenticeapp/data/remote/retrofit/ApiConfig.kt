@@ -38,6 +38,7 @@ object ApiConfig {
             .build()
         val retrofit =Retrofit.Builder()
             .baseUrl("http://192.168.1.109:32768/v1/")
+//            .baseUrl("https://prentice-jobs-webserver-dev-un47nwyyta-et.a.run.app/v1/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

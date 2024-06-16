@@ -5,16 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.prenticedev.prenticeapp.R
 import com.prenticedev.prenticeapp.data.local.model.ReviewModel
 import com.prenticedev.prenticeapp.databinding.FragmentForyouBinding
 import com.prenticedev.prenticeapp.ui.adapter.ReviewCompanyAdapter
+import com.prenticedev.prenticeapp.ui.viewmodel.ForYouViewModel
+import com.prenticedev.prenticeapp.ui.viewmodel.ViewModelFactory
 
 
 class ForyouFragment : Fragment() {
     private lateinit var binding: FragmentForyouBinding
-    private val list = ArrayList<ReviewModel>()
+
+    private val forYouViewModel: ForYouViewModel by viewModels {
+        ViewModelFactory.getInstance(requireContext())
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -22,15 +28,35 @@ class ForyouFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentForyouBinding.inflate(inflater, container, false)
-        showRecyclerList()
+//        showRecyclerList()
+        showLoading()
+
         return binding.root
     }
+
+    private fun showLoading() {
+        forYouViewModel.isLoading.observe(viewLifecycleOwner) {
+            checkLoadingStatus(it)
+        }
+    }
+
+    private fun checkLoadingStatus(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.rvForyou.visibility = View.GONE
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.rvForyou.visibility = View.VISIBLE
+        }
+    }
+
     private fun showRecyclerList() {
-        binding.rvForyou.layoutManager = LinearLayoutManager(activity)
-        list.addAll(getReviewData())
-        val reviewAdapter = ReviewCompanyAdapter()
-        reviewAdapter.submitList(list)
-        binding.rvForyou.adapter =reviewAdapter
+        forYouViewModel.reviewFeedDataResponse.observe(viewLifecycleOwner) {
+            binding.rvForyou.layoutManager = LinearLayoutManager(activity)
+            val reviewAdapter = ReviewCompanyAdapter()
+            reviewAdapter.submitList(it)
+            binding.rvForyou.adapter = reviewAdapter
+        }
     }
 
     private fun getReviewData(): ArrayList<ReviewModel> {

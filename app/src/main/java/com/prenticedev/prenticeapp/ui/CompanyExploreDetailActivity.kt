@@ -37,9 +37,7 @@ class CompanyExploreDetailActivity : AppCompatActivity() {
             insets
         }
         extra_id = intent.getStringExtra(EXTRA_ID).toString()
-//        binding.btnAddReview.setOnClickListener {
-//            startActivity(Intent(this, ReviewActivity::class.java))
-//        }
+
         companyExploreDetailViewModel.getDetailCompany(extra_id)
         setCompanyData()
         showRVData()
@@ -93,7 +91,7 @@ class CompanyExploreDetailActivity : AppCompatActivity() {
         binding.rvReviews.layoutManager = LinearLayoutManager(this)
         list.addAll(getReviewData())
         val reviewAdapter = ReviewCompanyAdapter()
-        reviewAdapter.submitList(list)
+//        reviewAdapter.submitList(list)
         binding.rvReviews.adapter = reviewAdapter
     }
 

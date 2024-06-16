@@ -68,6 +68,11 @@ class MainActivity : AppCompatActivity() {
                 else -> false
             }
         }
+
+        if (savedInstanceState==null){
+            replaceFragment(ForyouFragment())
+        }
+
         val doubleBackToExitPressedOnce = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (pressedBack) {

@@ -12,6 +12,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.prenticedev.prenticeapp.data.local.pref.UserModel
 import com.prenticedev.prenticeapp.data.remote.response.EmailRequest
 import com.prenticedev.prenticeapp.data.remote.response.RegisterRequest
 import com.prenticedev.prenticeapp.data.remote.response.RegisterResponse
@@ -75,7 +76,15 @@ class SignInViewModel(private val userRepository: UserRepository) :
                     user?.getIdToken(true)?.addOnCompleteListener {
                         if (it.isSuccessful) {
                             val idToken = it.result.token
-                            Log.d(TAG, idToken.toString())
+                            viewModelScope.launch {
+                                userRepository.saveSession(
+                                    UserModel(
+                                        it.result.token.toString(),
+                                        true
+                                    )
+                                )
+                            }
+                            Log.d(TAG, "Token Firebase: ${idToken.toString()}")
                         } else {
                             Log.e(TAG, Log.ERROR.toString())
                         }

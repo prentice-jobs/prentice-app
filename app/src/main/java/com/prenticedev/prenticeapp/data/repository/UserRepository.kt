@@ -13,7 +13,7 @@ class UserRepository private constructor(
     suspend fun saveSession(user: UserModel) = userPreference.saveSession(user)
     fun getSession(): Flow<UserModel> = userPreference.getSession()
     fun getToken(): LiveData<String> = userPreference.getToken().asLiveData()
-    fun getName(): LiveData<String> = userPreference.getName().asLiveData()
+
     suspend fun logout() = userPreference.logOut()
 
     companion object {

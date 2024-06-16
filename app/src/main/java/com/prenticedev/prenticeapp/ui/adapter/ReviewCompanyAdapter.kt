@@ -6,31 +6,44 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.prenticedev.prenticeapp.data.local.model.ReviewModel
+import com.prenticedev.prenticeapp.data.remote.response.ReviewFeedItems
 import com.prenticedev.prenticeapp.databinding.RvItemCompanyReviewBinding
 import com.prenticedev.prenticeapp.ui.DetailReviewActivity
 
-class ReviewCompanyAdapter : ListAdapter<ReviewModel, ReviewCompanyAdapter.MyViewHolder>(
+class ReviewCompanyAdapter : ListAdapter<ReviewFeedItems, ReviewCompanyAdapter.MyViewHolder>(
     DIFF_CALLBACK
 ) {
     class MyViewHolder(private val binding: RvItemCompanyReviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ReviewModel) {
-            Glide.with(itemView.context).load(item.userPhoto).into(binding.imUserReviewer)
+        fun bind(item: ReviewFeedItems) {
+            binding.tvUser.text = item.authorId
+            binding.tvReviewTitle.text = item.title
             binding.tvReviewerRole.text = item.role
-            binding.tvReviewerStatus.text = item.status
-            binding.tvUser.text = item.userName
+            binding.tvReviewContent.text = item.description
             binding.tvUserLoc.text = item.location
-            binding.tvReviewTitle.text = item.reviewTitle
-            binding.tvReviewContent.text = item.reviewContent
+            binding.tvTimeAdded.text = item.createdAt
             with(itemView) {
                 setOnClickListener {
                     Intent(context, DetailReviewActivity::class.java).apply {
+                        putExtra(DetailReviewActivity.EXTRA_ID, item.id)
                         context.startActivity(this)
                     }
                 }
             }
+//            Glide.with(itemView.context).load(item.userPhoto).into(binding.imUserReviewer)
+//            binding.tvReviewerRole.text = item.role
+//            binding.tvReviewerStatus.text = item.status
+//            binding.tvUser.text = item.userName
+//            binding.tvUserLoc.text = item.location
+//            binding.tvReviewTitle.text = item.reviewTitle
+//            binding.tvReviewContent.text = item.reviewContent
+//            with(itemView) {
+//                setOnClickListener {
+//                    Intent(context, DetailReviewActivity::class.java).apply {
+//                        context.startActivity(this)
+//                    }
+//                }
+//            }
         }
     }
 
@@ -49,12 +62,18 @@ class ReviewCompanyAdapter : ListAdapter<ReviewModel, ReviewCompanyAdapter.MyVie
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ReviewModel>() {
-            override fun areContentsTheSame(oldItem: ReviewModel, newItem: ReviewModel): Boolean {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ReviewFeedItems>() {
+            override fun areContentsTheSame(
+                oldItem: ReviewFeedItems,
+                newItem: ReviewFeedItems
+            ): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areItemsTheSame(oldItem: ReviewModel, newItem: ReviewModel): Boolean {
+            override fun areItemsTheSame(
+                oldItem: ReviewFeedItems,
+                newItem: ReviewFeedItems
+            ): Boolean {
                 return oldItem == newItem
             }
         }

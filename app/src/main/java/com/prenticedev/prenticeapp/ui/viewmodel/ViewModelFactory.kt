@@ -28,6 +28,17 @@ class ViewModelFactory private constructor(
                 ReviewViewModel(userRepository) as T
             }
 
+            modelClass.isAssignableFrom(UserProfileViewModel::class.java) -> {
+                UserProfileViewModel(userRepository) as T
+            }
+
+            modelClass.isAssignableFrom(ForYouViewModel::class.java) -> {
+                ForYouViewModel(userRepository) as T
+            }
+            modelClass.isAssignableFrom(DetailReviewViewModel::class.java) ->{
+                DetailReviewViewModel(userRepository) as T
+            }
+
             else -> throw IllegalArgumentException("Unknown Model Class: " + modelClass.name)
         }
     }

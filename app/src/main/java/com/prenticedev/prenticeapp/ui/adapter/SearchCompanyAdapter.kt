@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.google.android.material.chip.Chip
 import com.prenticedev.prenticeapp.data.remote.response.CompanyResponseItem
 import com.prenticedev.prenticeapp.databinding.RvItemCompanyExploreBinding
 import com.prenticedev.prenticeapp.ui.CompanyExploreDetailActivity
@@ -20,13 +21,21 @@ class SearchCompanyAdapter() : ListAdapter<CompanyResponseItem, SearchCompanyAda
             Glide.with(itemView.context).load(item.logoUrl).into(binding.imCompany)
             binding.TvCompanyName.text = item.displayName
 //            binding.tvCompanyCategory.text = item.tags
+            val companyTags = item.tags
             binding.tvRatingValue.text = item.starRating.toString()
+            binding.tvSeeReviews. text ="See ${item.reviewCount.toString()} Reviews"
             with(itemView) {
                 setOnClickListener {
                     Intent(context, CompanyExploreDetailActivity::class.java).apply {
                         putExtra(CompanyExploreDetailActivity.EXTRA_ID, item.id)
                         context.startActivity(this)
                     }
+                }
+                if (companyTags != null) {
+                    val chip = Chip(context).apply {
+                        text = companyTags.toString()
+                    }
+                    binding.companyTag.addView(chip)
                 }
             }
         }

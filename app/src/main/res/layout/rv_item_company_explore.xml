@@ -31,17 +31,29 @@
             app:layout_constraintStart_toEndOf="@+id/imCompany"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tvCompanyCategory"
-            android:layout_width="wrap_content"
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/companyCategory"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/rounded_background"
-            android:text="Swasta"
-            android:padding="8dp"
-            android:textStyle="bold"
-            android:layout_marginStart="15dp"
+            android:fillViewport="true"
             app:layout_constraintStart_toEndOf="@+id/imCompany"
-            app:layout_constraintTop_toBottomOf="@+id/TvCompanyName" />
+            android:layout_marginStart="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/TvCompanyName">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/companyTag"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                app:singleLine="true"/>
+<!--            <com.google.android.material.chip.Chip-->
+<!--                android:id="@+id/tvCompanyCategory"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Swasta"-->
+<!--                android:textSize="11sp"-->
+<!--                android:textStyle="bold" />-->
+        </androidx.core.widget.NestedScrollView>
+
 
         <ImageView
             android:id="@+id/imStar"
@@ -68,9 +80,9 @@
             android:id="@+id/tvSeeReviews"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="See 169 Reviews"
-            android:layout_marginEnd="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:text="See 169 Reviews"
             app:layout_constraintEnd_toStartOf="@+id/btnSeeReview"
             app:layout_constraintTop_toBottomOf="@+id/TvCompanyName" />
 
@@ -78,8 +90,8 @@
             android:id="@+id/btnSeeReview"
             android:layout_width="20dp"
             android:layout_height="20dp"
-            android:background="@null"
             android:layout_marginTop="18dp"
+            android:background="@null"
             android:src="@drawable/baseline_keyboard_arrow_right_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

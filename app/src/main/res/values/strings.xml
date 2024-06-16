@@ -19,8 +19,8 @@
     <string name="btn_fmcg">FMCG</string>
     <string name="btn_govt">GOVT</string>
     <string name="btn_compare">Compare</string>
-  
-  
+
+
     <string-array name="company_location">
         <item>Jakarta</item>
         <item>Jakarta</item>
@@ -126,6 +126,12 @@
         <item>Database Administrator</item>
         <item>Mobile Developer</item>
         <item>QA Engineer</item>
+    </string-array>
+
+    <string-array name="spinner_items_currency">
+        <item>IDR</item>
+        <item>USD</item>
+        <item>JPY</item>
     </string-array>
 
     <string-array name="company_rating">

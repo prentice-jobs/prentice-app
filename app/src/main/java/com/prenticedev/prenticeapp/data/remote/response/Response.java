@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 public class Response{
 
 	@SerializedName("data")
-	private List<DataItem> data;
+	private List<ReviewFeedItems> data;
 
 	@SerializedName("message")
 	private String message;
@@ -14,7 +14,7 @@ public class Response{
 	@SerializedName("status")
 	private int status;
 
-	public List<DataItem> getData(){
+	public List<ReviewFeedItems> getData(){
 		return data;
 	}
 

@@ -81,8 +81,6 @@ dependencies {
     implementation(libs.firebase.auth)
     implementation (libs.androidx.paging.runtime.ktx)
 
-
-
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation(libs.androidx.datastore)
     implementation(libs.datastore.preferences)

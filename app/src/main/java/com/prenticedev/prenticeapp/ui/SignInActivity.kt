@@ -78,10 +78,6 @@ class SignInActivity : AppCompatActivity() {
             val signInIntent = mGoogleSignInClient.signInIntent
             startActivityForResult(signInIntent, signInID)
         }
-        binding.btnSignGuest.setOnClickListener {
-//            val intent = Intent(this@SignInActivity, MainActivity::class.java)
-//            startActivity(intent)
-        }
 
     }
 
@@ -98,39 +94,9 @@ class SignInActivity : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == signInID) {
             signInViewModel.signInWithGoogle(data)
-//            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-//            try {
-//                val account = task.getResult(ApiException::class.java)
-//                firebaseAuth(account)
-//            } catch (e: ApiException) {
-//                Log.w(TAG, "Google sign in failed: ", e)
-//            }
+
         }
     }
-
-//    private fun firebaseAuth(acct: GoogleSignInAccount?) {
-//        val credential = GoogleAuthProvider.getCredential(acct?.idToken, null)
-//        auth.signInWithCredential(credential)
-//            .addOnCompleteListener(this) { task ->
-//                if (task.isSuccessful) {
-//                    val user = auth.currentUser
-//                    user?.getIdToken(true)?.addOnCompleteListener { task ->
-//                        if (task.isSuccessful) {
-//                            val idToken = task.result?.token
-//                            Log.d(TAG, "Token Firebase: $idToken")
-//                        } else {
-//                            Log.w(TAG, "Failed to retrieve token", task.exception)
-//                        }
-//                    }
-//                    print(user)
-//                    updateUI(user)
-//                } else {
-//                    Log.w(TAG, "SignIn with credential:failure", task.exception)
-//                    showToast("Authentication failed")
-//                    updateUI(null)
-//                }
-//            }
-//    }
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
