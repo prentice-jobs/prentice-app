@@ -6,31 +6,26 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.prenticedev.prenticeapp.data.remote.response.deployed.ReviewFeedItems
-import com.prenticedev.prenticeapp.databinding.RvItemCompanyReviewBinding
+import com.prenticedev.prenticeapp.data.remote.response.deployed.DetailCompanyReviewItems
+import com.prenticedev.prenticeapp.databinding.RvItemCompanyDetailBinding
 import com.prenticedev.prenticeapp.ui.DetailReviewActivity
 
-class ReviewCompanyAdapter : ListAdapter<ReviewFeedItems, ReviewCompanyAdapter.MyViewHolder>(
-    DIFF_CALLBACK
-) {
-    class MyViewHolder(private val binding: RvItemCompanyReviewBinding) :
+class DetailCompanyAdapter :
+    ListAdapter<DetailCompanyReviewItems, DetailCompanyAdapter.MyViewHolder>(
+        DIFF_CALLBACK
+    ) {
+    class MyViewHolder(private val binding: RvItemCompanyDetailBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ReviewFeedItems) {
-            binding.tvUser.text = item.authorId
+        fun bind(item: DetailCompanyReviewItems) {
             binding.tvReviewTitle.text = item.title
-            binding.tvReviewerRole.text = item.role
             binding.tvReviewContent.text = item.description
-            binding.tvUserLoc.text = item.location
-            binding.tvTimeAdded.text = item.createdAt
             with(itemView) {
                 setOnClickListener {
                     Intent(context, DetailReviewActivity::class.java).apply {
-                        putExtra(DetailReviewActivity.EXTRA_ID, item.id)
                         context.startActivity(this)
                     }
                 }
             }
-
         }
     }
 
@@ -39,7 +34,7 @@ class ReviewCompanyAdapter : ListAdapter<ReviewFeedItems, ReviewCompanyAdapter.M
         viewType: Int
     ): MyViewHolder {
         val binding =
-            RvItemCompanyReviewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            RvItemCompanyDetailBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return MyViewHolder(binding)
     }
 
@@ -48,18 +43,19 @@ class ReviewCompanyAdapter : ListAdapter<ReviewFeedItems, ReviewCompanyAdapter.M
         holder.bind(userReviews)
     }
 
+
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ReviewFeedItems>() {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<DetailCompanyReviewItems>() {
             override fun areContentsTheSame(
-                oldItem: ReviewFeedItems,
-                newItem: ReviewFeedItems
+                oldItem: DetailCompanyReviewItems,
+                newItem: DetailCompanyReviewItems
             ): Boolean {
                 return oldItem == newItem
             }
 
             override fun areItemsTheSame(
-                oldItem: ReviewFeedItems,
-                newItem: ReviewFeedItems
+                oldItem: DetailCompanyReviewItems,
+                newItem: DetailCompanyReviewItems
             ): Boolean {
                 return oldItem == newItem
             }

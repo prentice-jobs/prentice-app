@@ -2,6 +2,7 @@ package com.prenticedev.prenticeapp.data.remote.response;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;
+import com.prenticedev.prenticeapp.data.remote.response.deployed.ReviewFeedItems;
 
 public class Response{
 

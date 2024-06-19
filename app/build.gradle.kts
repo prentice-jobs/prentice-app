@@ -67,6 +67,7 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
     implementation(libs.androidx.credentials.play.services.auth)
+    implementation(libs.androidx.work.runtime.ktx)
 
 
     implementation(libs.glide)

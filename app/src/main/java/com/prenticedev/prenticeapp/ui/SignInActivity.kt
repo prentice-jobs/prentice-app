@@ -10,15 +10,22 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.work.Constraints
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.NetworkType
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.prenticedev.prenticeapp.R
+import com.prenticedev.prenticeapp.data.helper.TokenRefreshWorker
 import com.prenticedev.prenticeapp.data.remote.retrofit.ApiConfig
 import com.prenticedev.prenticeapp.databinding.ActivitySignInBinding
 import com.prenticedev.prenticeapp.ui.viewmodel.SignInViewModel
 import com.prenticedev.prenticeapp.ui.viewmodel.ViewModelFactory
+import java.util.concurrent.TimeUnit
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
@@ -44,9 +51,9 @@ class SignInActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         val currentUser = auth.currentUser
 
-
         if (currentUser != null) {
             val intent = Intent(this@SignInActivity, MainActivity::class.java)
+            scheduleRefreshToken()
             startActivity(intent)
         }
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -80,6 +87,21 @@ class SignInActivity : AppCompatActivity() {
         }
 
     }
+
+    private fun scheduleRefreshToken() {
+        val constraints = Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.CONNECTED)
+            .build()
+        val tokenRefreshRequest = PeriodicWorkRequestBuilder<TokenRefreshWorker>(1, TimeUnit.HOURS)
+            .setConstraints(constraints)
+            .build()
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "TokenRefreshWork",
+            ExistingPeriodicWorkPolicy.REPLACE,
+            tokenRefreshRequest
+        )
+    }
+
 
     private fun showLoading(isLoading: Boolean) {
         if (isLoading) {

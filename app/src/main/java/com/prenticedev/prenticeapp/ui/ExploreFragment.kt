@@ -54,7 +54,7 @@ class ExploreFragment : Fragment() {
             showLoading(it)
         }
         exploreViewModel.companyData.observe(viewLifecycleOwner) { companies ->
-            (binding.rvCompanies.adapter as SearchCompanyAdapter).submitList(companies)
+            (binding.rvCompanies.adapter as SearchCompanyAdapter).submitList(companies.data)
         }
     }
 
@@ -113,7 +113,7 @@ class ExploreFragment : Fragment() {
         binding.rvCompanies.layoutManager = LinearLayoutManager(activity)
         val listCompanyAdapter = SearchCompanyAdapter()
         exploreViewModel.companyData.observe(viewLifecycleOwner) {
-            listCompanyAdapter.submitList(it)
+            listCompanyAdapter.submitList(it.data)
         }
         binding.rvCompanies.adapter = listCompanyAdapter
     }

@@ -5,7 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.prenticedev.prenticeapp.data.remote.response.DetailReviewResponse
+import com.prenticedev.prenticeapp.data.remote.response.deployed.CompanyDeployedResponse
+import com.prenticedev.prenticeapp.data.remote.response.deployed.CompanyResponseItem
+import com.prenticedev.prenticeapp.data.remote.response.local_docker.DetailReviewResponse
 import com.prenticedev.prenticeapp.data.remote.retrofit.ApiConfig
 import com.prenticedev.prenticeapp.data.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
@@ -14,8 +16,8 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 
 class DetailReviewViewModel(private val userRepository: UserRepository) : ViewModel() {
-    private val _detailReviewResponse = MutableLiveData<DetailReviewResponse>()
-    val detailReviewResponse: LiveData<DetailReviewResponse> = _detailReviewResponse
+    private val _detailReviewResponse = MutableLiveData<CompanyResponseItem>()
+    val detailReviewResponse: LiveData<CompanyResponseItem> = _detailReviewResponse
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading

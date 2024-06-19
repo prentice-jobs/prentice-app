@@ -1,32 +1,27 @@
-package com.prenticedev.prenticeapp.data.remote.response
+package com.prenticedev.prenticeapp.data.remote.response.deployed
 
+import kotlinx.parcelize.Parcelize
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-data class DetailReviewResponse(
 
-	@field:SerializedName("data")
-	val data: DetailReviewData? = null,
+data class ReviewFeedResponse(
 
-	@field:SerializedName("message")
+    @field:SerializedName("data")
+	val data: List<ReviewFeedItems?>? = null,
+
+    @field:SerializedName("message")
 	val message: String? = null,
 
-	@field:SerializedName("error")
+    @field:SerializedName("error")
 	val error: Any? = null,
 
-	@field:SerializedName("status")
+    @field:SerializedName("status")
 	val status: Int? = null
 )
 
-data class DetailReviewData(
-
-	@field:SerializedName("comments")
-	val comments: List<Any?>? = null,
-
-	@field:SerializedName("review")
-	val review: Review? = null
-)
-
-data class Review(
+@Parcelize
+data class ReviewFeedItems(
 
 	@field:SerializedName("end_date")
 	val endDate: String? = null,
@@ -43,20 +38,20 @@ data class Review(
 	@field:SerializedName("is_remote")
 	val isRemote: Boolean? = null,
 
-	@field:SerializedName("salary_currency")
-	val salaryCurrency: String? = null,
-
 	@field:SerializedName("created_at")
 	val createdAt: String? = null,
 
 	@field:SerializedName("description")
 	val description: String? = null,
 
+	@field:SerializedName("salary_currency")
+	val salaryCurrency: String? = null,
+
 	@field:SerializedName("title")
 	val title: String? = null,
 
 	@field:SerializedName("tags")
-	val tags: String? = null,
+	val tags: List<String?>? = null,
 
 	@field:SerializedName("is_deleted")
 	val isDeleted: Boolean? = null,
@@ -65,10 +60,10 @@ data class Review(
 	val updatedAt: String? = null,
 
 	@field:SerializedName("star_rating")
-	val starRating: Int? = null,
+	val starRating: String? = null,
 
 	@field:SerializedName("annual_salary")
-	val annualSalary: Int? = null,
+	val annualSalary: Long? = null,
 
 	@field:SerializedName("location")
 	val location: String? = null,
@@ -81,4 +76,4 @@ data class Review(
 
 	@field:SerializedName("start_date")
 	val startDate: String? = null
-)
+) : Parcelable

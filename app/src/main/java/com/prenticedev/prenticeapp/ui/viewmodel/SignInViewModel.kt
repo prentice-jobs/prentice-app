@@ -13,9 +13,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.prenticedev.prenticeapp.data.local.pref.UserModel
-import com.prenticedev.prenticeapp.data.remote.response.EmailRequest
-import com.prenticedev.prenticeapp.data.remote.response.RegisterRequest
-import com.prenticedev.prenticeapp.data.remote.response.RegisterResponse
+import com.prenticedev.prenticeapp.data.remote.response.deployed.EmailRequest
+import com.prenticedev.prenticeapp.data.remote.response.deployed.RegisterRequest
+import com.prenticedev.prenticeapp.data.remote.response.deployed.RegisterResponse
 import com.prenticedev.prenticeapp.data.remote.retrofit.ApiConfig
 import com.prenticedev.prenticeapp.data.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
@@ -50,6 +50,12 @@ class SignInViewModel(private val userRepository: UserRepository) :
             firebaseAuth(acc)
         } catch (e: Exception) {
             Log.e(TAG, e.message.toString())
+        }
+    }
+
+    fun saveUserToken(userData: UserModel) {
+        viewModelScope.launch {
+            userRepository.saveSession(userData)
         }
     }
 

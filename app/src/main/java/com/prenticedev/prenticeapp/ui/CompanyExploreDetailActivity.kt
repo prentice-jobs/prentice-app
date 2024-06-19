@@ -12,13 +12,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.prenticedev.prenticeapp.R
 import com.prenticedev.prenticeapp.data.local.model.ReviewModel
+import com.prenticedev.prenticeapp.data.remote.retrofit.ApiConfig
 import com.prenticedev.prenticeapp.databinding.ActivityCompanyExploreDetailBinding
-import com.prenticedev.prenticeapp.ui.adapter.ReviewCompanyAdapter
+import com.prenticedev.prenticeapp.ui.adapter.DetailCompanyAdapter
 import com.prenticedev.prenticeapp.ui.viewmodel.CompanyExploreDetailViewModel
 import com.prenticedev.prenticeapp.ui.viewmodel.ViewModelFactory
 
 class CompanyExploreDetailActivity : AppCompatActivity() {
-    private val list = ArrayList<ReviewModel>()
     private lateinit var binding: ActivityCompanyExploreDetailBinding
     private lateinit var extra_id: String
     private val companyExploreDetailViewModel: CompanyExploreDetailViewModel by viewModels {
@@ -27,6 +27,7 @@ class CompanyExploreDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ApiConfig.initialize(this)
         binding = ActivityCompanyExploreDetailBinding.inflate(layoutInflater)
         val view = binding.root
         enableEdgeToEdge()
@@ -60,7 +61,7 @@ class CompanyExploreDetailActivity : AppCompatActivity() {
         companyExploreDetailViewModel.detailCompanyData.observe(this) {
             val intent = Intent(this, ReviewActivity::class.java)
             intent.putExtra("company_id", extra_id)
-            intent.putExtra("company_name", it.displayName)
+            intent.putExtra("company_name", it.data?.displayName)
             startActivity(intent)
         }
 
@@ -73,11 +74,11 @@ class CompanyExploreDetailActivity : AppCompatActivity() {
 
     private fun setCompanyData() {
         companyExploreDetailViewModel.detailCompanyData.observe(this) {
-            Glide.with(this).load(it.logoUrl).into(binding.imCompany)
-            binding.tvCompanyTitle.text = it.displayName.toString()
-            binding.companyName.text = it.displayName.toString()
-            binding.tvRatingCount.text = it.starRating.toString()
-            binding.tvCompanyDesc.text = it.description.toString()
+            Glide.with(this).load(it.data?.logoUrl).into(binding.imCompany)
+            binding.tvCompanyTitle.text = it.data?.displayName
+            binding.companyName.text = it.data?.displayName
+            binding.tvRatingCount.text = it.data?.starRating.toString()
+            binding.tvCompanyDesc.text = it.data?.description
 
         }
     }
@@ -88,10 +89,12 @@ class CompanyExploreDetailActivity : AppCompatActivity() {
 
 
     private fun showRVData() {
+//        list.addAll(getReviewData())
         binding.rvReviews.layoutManager = LinearLayoutManager(this)
-        list.addAll(getReviewData())
-        val reviewAdapter = ReviewCompanyAdapter()
-//        reviewAdapter.submitList(list)
+        val reviewAdapter = DetailCompanyAdapter()
+        companyExploreDetailViewModel.detailCompanyData.observe(this) {
+            reviewAdapter.submitList(it.data?.companyReviews)
+        }
         binding.rvReviews.adapter = reviewAdapter
     }
 

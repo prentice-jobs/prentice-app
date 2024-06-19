@@ -67,8 +67,11 @@ class DetailReviewActivity : AppCompatActivity() {
     private fun showReviewData() {
         detailReviewViewModel.getDetailReview(extraId)
         detailReviewViewModel.detailReviewResponse.observe(this) {
-            binding.tvDetailRevTitle.text = it.data?.review?.title.toString()
-            binding.tvTime.text = it.data?.review?.createdAt.toString()
+            binding.tvDetailRevTitle.text =it.companyReviews.toString()
+            binding.tvTime.text =it.createdAt.toString()
+//            binding.tvDetailRevTitle.text = it.data?.review?.title.toString()
+//            binding.tvDetailRevTitle.text =it.
+//            binding.tvTime.text = it.data?.review?.createdAt.toString()
         }
     }
 

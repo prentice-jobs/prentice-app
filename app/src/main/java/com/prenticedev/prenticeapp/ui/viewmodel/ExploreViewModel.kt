@@ -5,7 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.prenticedev.prenticeapp.data.remote.response.CompanyResponseItem
+import com.prenticedev.prenticeapp.data.remote.response.deployed.CompanyDeployedResponse
+import com.prenticedev.prenticeapp.data.remote.response.deployed.CompanyResponseItem
 import com.prenticedev.prenticeapp.data.remote.retrofit.ApiConfig
 import com.prenticedev.prenticeapp.data.repository.UserRepository
 import kotlinx.coroutines.Dispatchers
@@ -15,8 +16,16 @@ import retrofit2.HttpException
 
 class ExploreViewModel(private val userRepository: UserRepository) : ViewModel() {
 
-    private val _companyData = MutableLiveData<List<CompanyResponseItem>?>()
-    val companyData: LiveData<List<CompanyResponseItem>?> get() = _companyData
+// ----------------------- FROM LOCAL DOCKER DEVELOPMENT -----------------------
+//    private val _companyData = MutableLiveData<List<CompanyResponseItem>?>()
+//    val companyData: LiveData<List<CompanyResponseItem>?> get() = _companyData
+//    ------------------------------------------------------------------------
+
+    private val _companyData = MutableLiveData<CompanyDeployedResponse>()
+    val companyData: LiveData<CompanyDeployedResponse> = _companyData
+
+    private val _searchCompanyResult = MutableLiveData<List<CompanyResponseItem>>()
+    val searchCompanyResult: LiveData<List<CompanyResponseItem>> = _searchCompanyResult
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
@@ -51,7 +60,7 @@ class ExploreViewModel(private val userRepository: UserRepository) : ViewModel()
         }
     }
 
-     fun getCompanies() {
+    fun getCompanies() {
         _isLoading.value = true
         viewModelScope.launch {
             try {

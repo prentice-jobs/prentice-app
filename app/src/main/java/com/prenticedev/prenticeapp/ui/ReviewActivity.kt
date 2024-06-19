@@ -1,45 +1,64 @@
 package com.prenticedev.prenticeapp.ui
 
 import android.app.Dialog
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
 import android.view.View
-import android.widget.CheckBox
 import android.widget.ImageView
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
 import com.prenticedev.prenticeapp.R
+import com.prenticedev.prenticeapp.data.helper.reduceImage
+import com.prenticedev.prenticeapp.data.helper.uriToFile
 import com.prenticedev.prenticeapp.data.remote.retrofit.ApiConfig
 import com.prenticedev.prenticeapp.databinding.ActivityReviewBinding
+import com.prenticedev.prenticeapp.ui.viewmodel.ReviewViewModel
+import com.prenticedev.prenticeapp.ui.viewmodel.ViewModelFactory
 
 class ReviewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityReviewBinding
     private lateinit var extra_id: String
+    private var isRemote: Boolean = false
     private var currentImageUri: Uri? = null
     private val tags = mutableListOf<String>()
+    private val reviewViewModel: ReviewViewModel by viewModels {
+        ViewModelFactory.getInstance(this)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityReviewBinding.inflate(layoutInflater)
         val view = binding.root
         ApiConfig.initialize(this)
+
         extra_id = intent.getStringExtra("company_id").toString()
+
         val companyName = intent.getStringExtra("company_name")
         enableEdgeToEdge()
         setContentView(view)
+
         ViewCompat.setOnApplyWindowInsetsListener(view) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+
+        isRemote = binding.isRemote.isActivated
+
+
+        reviewViewModel.isLoading.observe(this) {
+            showLoading(it)
         }
 
         binding.btnBack.setOnClickListener {
@@ -53,7 +72,7 @@ class ReviewActivity : AppCompatActivity() {
         }
 
         binding.btnSubmitReview.setOnClickListener {
-            showRatingValue()
+            uploadReview()
         }
 
         binding.btnAddTag.setOnClickListener {
@@ -67,6 +86,68 @@ class ReviewActivity : AppCompatActivity() {
                 group.removeView(chip)
             }
 
+        }
+
+//        TODO: MAKE ROUTE TO ANOTHER PAGE WHEN SUCCESSFULLY INSERTED A DATA REVIEW
+        reviewViewModel.makeReviewResponse.observe(this) {
+            if (it.status == 201) {
+                showToast("Review Successfully Added!: ${it.message.toString()}")
+                startActivity(Intent(this, CompanyExploreDetailActivity::class.java).apply {
+                    putExtra(CompanyExploreDetailActivity.EXTRA_ID, extra_id)
+                })
+                finish()
+            } else {
+                showToast("Add Review Failed: ${it.message.toString()}")
+            }
+        }
+
+    }
+
+    private fun uploadReview() {
+        val companyId = extra_id
+        val location = binding.edtLocation.text.toString()
+        val starRating = binding.ratingBar.rating
+        val title = binding.edtTitleReview.text.toString()
+        val description = binding.edtDescReview.text.toString()
+        val startDate = binding.dateStart.text.toString()
+        val endDate = binding.dateEnd.text.toString()
+        val annualSalary = binding.edtAnnualSalary.text.toString()
+
+        currentImageUri?.let { uri ->
+            val imFile = uriToFile(uri, this).reduceImage()
+            reviewViewModel.uploadOfferLetterImage(imFile)
+
+            reviewViewModel.uploadedImageUrl.observe(this) {
+                reviewViewModel.postReview(
+                    companyId,
+                    location,
+                    isRemote,
+                    tags,
+                    starRating,
+                    title,
+                    description,
+                    binding.spinRole.selectedItem.toString(),
+                    startDate,
+                    endDate,
+                    it,
+                    annualSalary,
+                    binding.spinnerCurrency.selectedItem.toString()
+                )
+
+            }
+        } ?: showToast("Please Add Offer Letter Image")
+
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
         }
     }
 
@@ -91,41 +172,6 @@ class ReviewActivity : AppCompatActivity() {
         }
     }
 
-    private fun showRatingValue() {
-        val starValue = binding.ratingBar.rating.toString()
-        showToast(starValue)
-    }
-
-    private fun showToast(starValue: String) {
-        Toast.makeText(this, "The star value is: $starValue", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun checkSubmit() {
-        val dialog = Dialog(this)
-        dialog.setContentView(R.layout.dialog_show_submit_review_data)
-        val title: TextView = dialog.findViewById(R.id.title)
-        val content: TextView = dialog.findViewById(R.id.content)
-        val role: TextView = dialog.findViewById(R.id.role)
-        val startDate: TextView = dialog.findViewById(R.id.startdate)
-        val endDate: TextView = dialog.findViewById(R.id.endate)
-        val currency: TextView = dialog.findViewById(R.id.currency)
-        val amount: TextView = dialog.findViewById(R.id.amount)
-        val isRemote: CheckBox = dialog.findViewById(R.id.isRemote)
-
-        title.text = binding.edtTitleReview.text.toString()
-        content.text = binding.edtDescReview.text.toString()
-        role.text = binding.spinRole.selectedItem.toString()
-        startDate.text = binding.dateStart.text.toString()
-        endDate.text = binding.dateEnd.text.toString()
-        currency.text = binding.spinnerCurrency.selectedItem.toString()
-        amount.text = binding.edtAnnualSalary.text.toString()
-        if (isRemote.isChecked) {
-            isRemote.text = "Yes"
-        } else {
-            isRemote.text = "No"
-        }
-        dialog.show()
-    }
 
     private fun openGallery() {
         launchGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))

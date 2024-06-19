@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
-import com.prenticedev.prenticeapp.data.remote.response.CompanyResponseItem
+import com.prenticedev.prenticeapp.data.remote.response.deployed.CompanyResponseItem
 import com.prenticedev.prenticeapp.databinding.RvItemCompanyExploreBinding
 import com.prenticedev.prenticeapp.ui.CompanyExploreDetailActivity
 

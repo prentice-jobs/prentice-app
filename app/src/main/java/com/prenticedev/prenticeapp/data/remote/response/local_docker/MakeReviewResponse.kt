@@ -1,19 +1,19 @@
-package com.prenticedev.prenticeapp.data.remote.response
+package com.prenticedev.prenticeapp.data.remote.response.local_docker
 
 import com.google.gson.annotations.SerializedName
 
 data class MakeReviewResponse(
 
-	@field:SerializedName("data")
+    @field:SerializedName("data")
 	val data: MakeReviewData? = null,
 
-	@field:SerializedName("message")
+    @field:SerializedName("message")
 	val message: String? = null,
 
-	@field:SerializedName("error")
+    @field:SerializedName("error")
 	val error: Any? = null,
 
-	@field:SerializedName("status")
+    @field:SerializedName("status")
 	val status: Int? = null
 )
 

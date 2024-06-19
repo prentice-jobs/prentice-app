@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.prenticedev.prenticeapp.data.remote.response.ReviewFeedItems
+import com.prenticedev.prenticeapp.data.remote.response.deployed.ReviewFeedItems
 import com.prenticedev.prenticeapp.data.remote.retrofit.ApiConfig
 import com.prenticedev.prenticeapp.data.repository.UserRepository
 import kotlinx.coroutines.Dispatchers

@@ -1,4 +1,4 @@
-package com.prenticedev.prenticeapp.data.remote.response
+package com.prenticedev.prenticeapp.data.remote.response.deployed
 
 import com.google.gson.annotations.SerializedName
 

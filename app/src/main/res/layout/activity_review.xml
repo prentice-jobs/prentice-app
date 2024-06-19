@@ -92,6 +92,26 @@
                 app:layout_constraintTop_toBottomOf="@+id/edtTitleReview" />
 
             <TextView
+                android:id="@+id/tvLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="30dp"
+                android:text="Your Location"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edtDescReview" />
+
+            <EditText
+                android:id="@+id/edtLocation"
+                android:layout_width="200dp"
+                android:hint="Enter your location"
+                android:layout_marginStart="30dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLocation" />
+
+            <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -101,7 +121,7 @@
                 android:textSize="15sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/edtDescReview" />
+                app:layout_constraintTop_toBottomOf="@+id/edtLocation" />
 
             <Spinner
                 android:id="@+id/spinRole"
@@ -246,10 +266,11 @@
                 android:id="@+id/tagScroll"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
                 android:fillViewport="true"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvAddTag">
+
                 <com.google.android.material.chip.ChipGroup
                     android:id="@+id/chipTag"
                     android:layout_width="350dp"
@@ -291,5 +312,14 @@
 
     </androidx.core.widget.NestedScrollView>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

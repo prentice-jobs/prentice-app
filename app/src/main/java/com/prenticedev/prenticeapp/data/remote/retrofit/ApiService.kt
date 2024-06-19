@@ -1,18 +1,22 @@
 package com.prenticedev.prenticeapp.data.remote.retrofit
 
-import com.prenticedev.prenticeapp.data.remote.response.CompanyResponseItem
-import com.prenticedev.prenticeapp.data.remote.response.DetailReviewResponse
-import com.prenticedev.prenticeapp.data.remote.response.EmailRequest
-import com.prenticedev.prenticeapp.data.remote.response.MakeReviewResponse
-import com.prenticedev.prenticeapp.data.remote.response.RegisterRequest
-import com.prenticedev.prenticeapp.data.remote.response.RegisterResponse
-import com.prenticedev.prenticeapp.data.remote.response.ReviewFeedResponse
+import com.prenticedev.prenticeapp.data.remote.response.deployed.CompanyDeployedResponse
+import com.prenticedev.prenticeapp.data.remote.response.deployed.CompanyResponseItem
+import com.prenticedev.prenticeapp.data.remote.response.deployed.DetailCompanyResponseDeployed
+import com.prenticedev.prenticeapp.data.remote.response.deployed.EmailRequest
+import com.prenticedev.prenticeapp.data.remote.response.deployed.RegisterRequest
+import com.prenticedev.prenticeapp.data.remote.response.deployed.RegisterResponse
+import com.prenticedev.prenticeapp.data.remote.response.deployed.ReviewFeedResponse
+import com.prenticedev.prenticeapp.data.remote.response.deployed.ReviewRequest
+import com.prenticedev.prenticeapp.data.remote.response.deployed.UploadOfferResponse
+import com.prenticedev.prenticeapp.data.remote.response.local_docker.MakeReviewResponse
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.Body
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
+import retrofit2.http.Multipart
 import retrofit2.http.POST
+import retrofit2.http.Part
 import retrofit2.http.Path
 import retrofit2.http.Query
 
@@ -30,19 +34,22 @@ interface ApiService {
 
     // -----------------------------------------------------------------------
     //    COMPANIES API
+//    @GET("company/all")
+//    fun getCompanies(                     // GET COMPANIES API FOR LOCAL PROJECTS
+//    ): Call<List<CompanyResponseItem>>
+
     @GET("company/all")
-    fun getCompanies(
-    ): Call<List<CompanyResponseItem>>
+    fun getCompanies(): Call<CompanyDeployedResponse>
 
     @GET("company/search-name")
     fun searchCompany(
         @Query("name") companyName: String
-    ): Call<List<CompanyResponseItem>>
+    ): Call<CompanyDeployedResponse>
 
     @GET("company/{id}")
     fun getDetailCompany(
         @Path("id") id: String
-    ): Call<CompanyResponseItem>
+    ): Call<DetailCompanyResponseDeployed>
 
     //  ---------------------------------------------------------------------
 //    REVIEW API
@@ -50,26 +57,20 @@ interface ApiService {
     @GET("review/feed")
     fun getReviewFeed(): Call<ReviewFeedResponse>
 
-    @FormUrlEncoded
+
     @POST("review/")
-    fun createReview(
-        @Field("company_id") companyId: String,
-        @Field("location") location: String,
-        @Field("is_remote") isRemote: Boolean,
-        @Field("tags") tags: List<String>?,
-        @Field("star_rating") starRating: String,
-        @Field("title") title: String,
-        @Field("description") description: String,
-        @Field("role") role: String,
-        @Field("start_date") startDate: String,
-        @Field("end_date") endDate: String,
-        @Field("offer_letter_url") ofLetterUrl: String,
-        @Field("annual_salary") annualSalary: String,
-        @Field("salary_currency") currency: String
+    suspend fun createReview(
+        @Body reviewRequest: ReviewRequest
     ): Call<MakeReviewResponse>
+
+    @Multipart
+    @POST("review/offer")
+     fun uploadOfferLetter(
+        @Part file: MultipartBody.Part
+    ): Call<UploadOfferResponse>
 
     @GET("review/{reviewId}")
     fun getReviewDetail(
         @Path("reviewId") reviewId: String
-    ): Call<DetailReviewResponse>
+    ): Call<CompanyResponseItem>
 }
