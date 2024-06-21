@@ -1,5 +1,6 @@
 package com.prenticedev.prenticeapp.data.response;
 
+import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
 public class DataItem{
@@ -7,49 +8,49 @@ public class DataItem{
 	@SerializedName("role")
 	private String role;
 
-	@SerializedName("reviewDate")
-	private String reviewDate;
+	@SerializedName("date_posted")
+	private String datePosted;
 
-	@SerializedName("reviewContent")
-	private String reviewContent;
+	@SerializedName("logo_url")
+	private String logoUrl;
 
-	@SerializedName("companyName")
-	private String companyName;
+	@SerializedName("annual_salary")
+	private int annualSalary;
 
-	@SerializedName("location")
-	private String location;
+	@SerializedName("company")
+	private String company;
 
-	@SerializedName("type")
-	private String type;
+	@SerializedName("company_rating")
+	private double companyRating;
 
-	@SerializedName("reviewTitle")
-	private String reviewTitle;
+	@SerializedName("company_reviews")
+	private List<CompanyReviewsItem> companyReviews;
 
 	public String getRole(){
 		return role;
 	}
 
-	public String getReviewDate(){
-		return reviewDate;
+	public String getDatePosted(){
+		return datePosted;
 	}
 
-	public String getReviewContent(){
-		return reviewContent;
+	public String getLogoUrl(){
+		return logoUrl;
 	}
 
-	public String getCompanyName(){
-		return companyName;
+	public int getAnnualSalary(){
+		return annualSalary;
 	}
 
-	public String getLocation(){
-		return location;
+	public String getCompany(){
+		return company;
 	}
 
-	public String getType(){
-		return type;
+	public double getCompanyRating(){
+		return companyRating;
 	}
 
-	public String getReviewTitle(){
-		return reviewTitle;
+	public List<CompanyReviewsItem> getCompanyReviews(){
+		return companyReviews;
 	}
 }

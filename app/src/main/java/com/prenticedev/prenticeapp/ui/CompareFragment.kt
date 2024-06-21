@@ -27,13 +27,13 @@ class CompareFragment : Fragment() {
         binding.buttonConfirm.setOnClickListener {
             val extraRole1 = binding.editTextSearchRoles.text.toString()
             val extraCompany1 = binding.editTextSearchCompany.text.toString()
-            val extraDate1 = binding.editTextInputDate.text.toString()
+            val extraLocation1 = binding.location.text.toString()
 
             // Create a bundle to pass data to CompareRole2 fragment
             val bundle = Bundle().apply {
                 putString("extra_role1", extraRole1)
                 putString("extra_company1", extraCompany1)
-                putString("extra_date1", extraDate1)
+                putString("extra_location1", extraLocation1)
             }
 
             // Create an instance of CompareRole2 and set the arguments
