@@ -6,17 +6,17 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.prenticedev.prenticeapp.data.remote.response.deployed.ReviewFeedItems
+import com.prenticedev.prenticeapp.data.remote.response.deployed.FeedResponseItems
 import com.prenticedev.prenticeapp.databinding.RvItemCompanyReviewBinding
-import com.prenticedev.prenticeapp.ui.DetailReviewActivity
+import com.prenticedev.prenticeapp.ui.activity.DetailReviewActivity
 
-class ReviewCompanyAdapter : ListAdapter<ReviewFeedItems, ReviewCompanyAdapter.MyViewHolder>(
+class ReviewCompanyAdapter : ListAdapter<FeedResponseItems, ReviewCompanyAdapter.MyViewHolder>(
     DIFF_CALLBACK
 ) {
     class MyViewHolder(private val binding: RvItemCompanyReviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ReviewFeedItems) {
-            binding.tvUser.text = item.authorId
+        fun bind(item: FeedResponseItems) {
+//            binding.tvUser.text = item.authorId
             binding.tvReviewTitle.text = item.title
             binding.tvReviewerRole.text = item.role
             binding.tvReviewContent.text = item.description
@@ -49,17 +49,17 @@ class ReviewCompanyAdapter : ListAdapter<ReviewFeedItems, ReviewCompanyAdapter.M
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ReviewFeedItems>() {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<FeedResponseItems>() {
             override fun areContentsTheSame(
-                oldItem: ReviewFeedItems,
-                newItem: ReviewFeedItems
+                oldItem: FeedResponseItems,
+                newItem: FeedResponseItems
             ): Boolean {
                 return oldItem == newItem
             }
 
             override fun areItemsTheSame(
-                oldItem: ReviewFeedItems,
-                newItem: ReviewFeedItems
+                oldItem: FeedResponseItems,
+                newItem: FeedResponseItems
             ): Boolean {
                 return oldItem == newItem
             }

@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
 import com.prenticedev.prenticeapp.data.remote.response.deployed.CompanyResponseItem
 import com.prenticedev.prenticeapp.databinding.RvItemCompanyExploreBinding
-import com.prenticedev.prenticeapp.ui.CompanyExploreDetailActivity
+import com.prenticedev.prenticeapp.ui.activity.CompanyExploreDetailActivity
 
 class SearchCompanyAdapter() : ListAdapter<CompanyResponseItem, SearchCompanyAdapter.MyViewHolder>(
     DIFF_CALLBACK

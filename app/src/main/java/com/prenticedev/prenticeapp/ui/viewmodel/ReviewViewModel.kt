@@ -5,7 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.prenticedev.prenticeapp.data.remote.response.deployed.LocationsResponse
 import com.prenticedev.prenticeapp.data.remote.response.deployed.ReviewRequest
+import com.prenticedev.prenticeapp.data.remote.response.deployed.RolesResponse
 import com.prenticedev.prenticeapp.data.remote.response.deployed.UploadOfferResponse
 import com.prenticedev.prenticeapp.data.remote.response.local_docker.MakeReviewResponse
 import com.prenticedev.prenticeapp.data.remote.retrofit.ApiConfig
@@ -31,6 +33,67 @@ class ReviewViewModel(userRepository: UserRepository) : ViewModel() {
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
+
+    private val _roleSpinnerValue = MutableLiveData<RolesResponse>()
+    val roleSpinnerValue: LiveData<RolesResponse> = _roleSpinnerValue
+
+    private val _locationSpinnerValue = MutableLiveData<LocationsResponse>()
+    val locationSpinnerValue: LiveData<LocationsResponse> = _locationSpinnerValue
+
+    init {
+        getRoleValue()
+        getLocationValue()
+    }
+
+    private fun getLocationValue() {
+
+        try {
+            _isLoading.value = true
+            val apiService = ApiConfig.getApiService()
+            val client = apiService.getLocations()
+
+            client.enqueue(object : Callback<LocationsResponse> {
+                override fun onResponse(
+                    call: Call<LocationsResponse>,
+                    response: Response<LocationsResponse>
+                ) {
+                    _locationSpinnerValue.value = response.body()
+                }
+
+                override fun onFailure(call: Call<LocationsResponse>, t: Throwable) {
+                    Log.e(TAG, "Failed to fetch location list! ${t.message.toString()}")
+                }
+            })
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to call getLocation API! ${e.message.toString()}")
+        } finally {
+            _isLoading.value = false
+        }
+    }
+
+    private fun getRoleValue() {
+        try {
+            _isLoading.value = true
+            val apiService = ApiConfig.getApiService()
+            val client = apiService.getRoles()
+            client.enqueue(object : Callback<RolesResponse> {
+                override fun onResponse(
+                    call: Call<RolesResponse>,
+                    response: Response<RolesResponse>
+                ) {
+                    _roleSpinnerValue.value = response.body()
+                }
+
+                override fun onFailure(call: Call<RolesResponse>, t: Throwable) {
+                    Log.e(TAG, "Failed to fetch role list!: ${t.message.toString()}")
+                }
+            })
+        } catch (e: Exception) {
+            Log.e(TAG, "Failed to call getRoles API: ${e.message.toString()}")
+        } finally {
+            _isLoading.value = false
+        }
+    }
 
 
     fun postReview(

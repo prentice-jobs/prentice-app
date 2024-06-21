@@ -1,4 +1,4 @@
-package com.prenticedev.prenticeapp.ui
+package com.prenticedev.prenticeapp.ui.activity
 
 import android.app.Dialog
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.OpenableColumns
 import android.view.View
+import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -53,9 +54,9 @@ class ReviewActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
+        addRoleSpinnerValue()
+        addLocationSpinnerValue()
         isRemote = binding.isRemote.isActivated
-
 
         reviewViewModel.isLoading.observe(this) {
             showLoading(it)
@@ -103,9 +104,34 @@ class ReviewActivity : AppCompatActivity() {
 
     }
 
+    private fun addLocationSpinnerValue() {
+        reviewViewModel.locationSpinnerValue.observe(this) { locResponse ->
+            locResponse.data?.let { locations ->
+                val adapter = ArrayAdapter(
+                    this,
+                    android.R.layout.simple_spinner_item,
+                    locations.filterNotNull()
+                )
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                binding.spinnerLocation.adapter = adapter
+            }
+        }
+    }
+
+    private fun addRoleSpinnerValue() {
+        reviewViewModel.roleSpinnerValue.observe(this) { roleResponse ->
+            roleResponse.data?.let { roles ->
+                val adapter =
+                    ArrayAdapter(this, android.R.layout.simple_spinner_item, roles.filterNotNull())
+                adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                binding.spinRole.adapter = adapter
+            }
+        }
+    }
+
     private fun uploadReview() {
         val companyId = extra_id
-        val location = binding.edtLocation.text.toString()
+        val location = binding.spinnerLocation.selectedItem.toString()
         val starRating = binding.ratingBar.rating
         val title = binding.edtTitleReview.text.toString()
         val description = binding.edtDescReview.text.toString()

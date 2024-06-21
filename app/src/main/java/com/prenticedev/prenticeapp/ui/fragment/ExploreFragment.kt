@@ -1,4 +1,4 @@
-package com.prenticedev.prenticeapp.ui
+package com.prenticedev.prenticeapp.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.prenticedev.prenticeapp.data.remote.response.deployed.DetailCompanyReviewItems
 import com.prenticedev.prenticeapp.databinding.RvItemCompanyDetailBinding
-import com.prenticedev.prenticeapp.ui.DetailReviewActivity
+import com.prenticedev.prenticeapp.ui.activity.DetailReviewActivity
 
 class DetailCompanyAdapter :
     ListAdapter<DetailCompanyReviewItems, DetailCompanyAdapter.MyViewHolder>(

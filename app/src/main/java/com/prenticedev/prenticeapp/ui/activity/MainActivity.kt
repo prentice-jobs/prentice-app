@@ -1,4 +1,4 @@
-package com.prenticedev.prenticeapp.ui
+package com.prenticedev.prenticeapp.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -15,6 +15,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.prenticedev.prenticeapp.R
 import com.prenticedev.prenticeapp.data.remote.retrofit.ApiConfig
 import com.prenticedev.prenticeapp.databinding.ActivityMainBinding
+import com.prenticedev.prenticeapp.ui.fragment.CompareFragment
+import com.prenticedev.prenticeapp.ui.fragment.ExploreFragment
+import com.prenticedev.prenticeapp.ui.fragment.ForyouFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -43,7 +46,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imUserProfile.setOnClickListener {
-            startActivity(Intent(this,UserProfileActivity::class.java))
+            startActivity(Intent(this, UserProfileActivity::class.java))
         }
 
         val navView: BottomNavigationView = binding.navView

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/fragment_container_1"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/fragment_container_2"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.CompareFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.CompareRole2">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="20dp"
-            android:src="@drawable/jobs_purple"
+            android:src="@drawable/jobs"
             app:layout_constraintHorizontal_bias="0.2"
             app:layout_constraintEnd_toStartOf="@+id/button"
             app:layout_constraintStart_toStartOf="parent"
@@ -36,10 +36,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Role 1"
-            android:textColor="#6200EE"
+            android:textColor="@color/black"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/jobsPage1"
             app:layout_constraintStart_toStartOf="@+id/jobsPage1"
+            app:layout_constraintTop_toBottomOf="@+id/jobsPage1" />
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/check"
+            app:layout_constraintBottom_toBottomOf="@+id/role1"
+            app:layout_constraintStart_toEndOf="@+id/role1"
             app:layout_constraintTop_toBottomOf="@+id/jobsPage1" />
 
         <ImageView
@@ -47,7 +55,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_margin="20dp"
-            android:src="@drawable/jobs"
+            android:src="@drawable/jobs_purple"
             app:layout_constraintHorizontal_bias="0.80"
             app:layout_constraintEnd_toEndOf="@+id/tabLayout"
             app:layout_constraintStart_toStartOf="@+id/tabLayout"
@@ -57,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Role 2"
-            android:textColor="@color/black"
+            android:textColor="#6200EE"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/jobsPage2"
             app:layout_constraintStart_toStartOf="@+id/jobsPage2"
@@ -70,9 +78,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:text="@string/btn_compare"
             android:enabled="false"
             android:backgroundTint="@color/grey"
+            android:text="@string/btn_compare"
             app:layout_constraintBottom_toBottomOf="@+id/tabLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -232,6 +240,4 @@
             app:layout_constraintTop_toBottomOf="@+id/datePostedLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </FrameLayout>

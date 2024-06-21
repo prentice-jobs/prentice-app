@@ -67,7 +67,7 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
     implementation(libs.androidx.credentials.play.services.auth)
-    implementation(libs.androidx.work.runtime.ktx)
+
 
 
     implementation(libs.glide)
@@ -75,6 +75,7 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
 
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.auth.ktx)

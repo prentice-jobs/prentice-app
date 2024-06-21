@@ -1,4 +1,4 @@
-package com.prenticedev.prenticeapp.ui
+package com.prenticedev.prenticeapp.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -52,6 +52,7 @@ class UserProfileActivity : AppCompatActivity() {
             binding.tvUID.text = ""
 
         }
+
 
         binding.btnBack.setOnClickListener {
             finish()

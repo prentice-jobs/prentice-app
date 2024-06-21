@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_foryou"
-        android:name="com.prenticedev.prenticeapp.ui.ForyouFragment"
+        android:name="com.prenticedev.prenticeapp.ui.fragment.ForyouFragment"
         android:label="@string/for_you"
         tools:layout="@layout/fragment_foryou" />
 
     <fragment
         android:id="@+id/navigation_explore"
-        android:name="com.prenticedev.prenticeapp.ui.ExploreFragment"
+        android:name="com.prenticedev.prenticeapp.ui.fragment.ExploreFragment"
         android:label="@string/explore"
         tools:layout="@layout/fragment_explore" />
 
     <fragment
         android:id="@+id/navigation_compare"
-        android:name="com.prenticedev.prenticeapp.ui.CompareFragment"
+        android:name="com.prenticedev.prenticeapp.ui.fragment.CompareFragment"
         android:label="@string/compare"
         tools:layout="@layout/fragment_compare" />
 </navigation>

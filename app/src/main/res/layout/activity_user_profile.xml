@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.UserProfileActivity">
+    tools:context=".ui.activity.UserProfileActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/appBar"
@@ -72,35 +72,34 @@
         app:layout_constraintTop_toBottomOf="@id/tvUserProfile" />
 
 
+<!--    <TextView-->
+<!--        android:id="@+id/tvPrefLoc"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginTop="18dp"-->
+<!--        android:text="@string/text_prefered_location"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/tvUID" />-->
 
-    <TextView
-        android:id="@+id/tvPrefLoc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="18dp"
-        android:text="@string/text_prefered_location"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvUID" />
+<!--    <EditText-->
+<!--        android:id="@+id/edtPrefLoc"-->
+<!--        android:layout_width="280dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:text="Jakarta"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvPrefLoc" />-->
 
-    <EditText
-        android:id="@+id/edtPrefLoc"
-        android:layout_width="280dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="Jakarta"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrefLoc" />
-
-    <Button
-        android:id="@+id/btnConfirm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="@string/text_save_changes"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPrefLoc" />
+<!--    <Button-->
+<!--        android:id="@+id/btnConfirm"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:text="@string/text_save_changes"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/edtPrefLoc" />-->
 
     <Button
         android:id="@+id/btnLogout"
@@ -110,5 +109,6 @@
         android:text="@string/text_sign_out"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnConfirm" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUID" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

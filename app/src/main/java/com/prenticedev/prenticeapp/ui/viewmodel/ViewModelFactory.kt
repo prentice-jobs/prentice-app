@@ -39,6 +39,10 @@ class ViewModelFactory private constructor(
                 DetailReviewViewModel(userRepository) as T
             }
 
+            modelClass.isAssignableFrom(SetUserPreferencesViewModel::class.java) ->{
+                SetUserPreferencesViewModel(userRepository) as T
+            }
+
             else -> throw IllegalArgumentException("Unknown Model Class: " + modelClass.name)
         }
     }

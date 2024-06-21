@@ -4,10 +4,15 @@ import com.prenticedev.prenticeapp.data.remote.response.deployed.CompanyDeployed
 import com.prenticedev.prenticeapp.data.remote.response.deployed.CompanyResponseItem
 import com.prenticedev.prenticeapp.data.remote.response.deployed.DetailCompanyResponseDeployed
 import com.prenticedev.prenticeapp.data.remote.response.deployed.EmailRequest
+import com.prenticedev.prenticeapp.data.remote.response.deployed.FeedResponse
+import com.prenticedev.prenticeapp.data.remote.response.deployed.IndustriesResponse
+import com.prenticedev.prenticeapp.data.remote.response.deployed.LocationsResponse
 import com.prenticedev.prenticeapp.data.remote.response.deployed.RegisterRequest
 import com.prenticedev.prenticeapp.data.remote.response.deployed.RegisterResponse
-import com.prenticedev.prenticeapp.data.remote.response.deployed.ReviewFeedResponse
 import com.prenticedev.prenticeapp.data.remote.response.deployed.ReviewRequest
+import com.prenticedev.prenticeapp.data.remote.response.deployed.RolesResponse
+import com.prenticedev.prenticeapp.data.remote.response.deployed.SetPreferenceRequest
+import com.prenticedev.prenticeapp.data.remote.response.deployed.SetPreferenceResponse
 import com.prenticedev.prenticeapp.data.remote.response.deployed.UploadOfferResponse
 import com.prenticedev.prenticeapp.data.remote.response.local_docker.MakeReviewResponse
 import okhttp3.MultipartBody
@@ -32,6 +37,11 @@ interface ApiService {
         @Body email: EmailRequest
     ): Call<Boolean>
 
+    @POST("account/preferences")
+    fun saveUserPreference(
+        @Body setPreferenceRequest: SetPreferenceRequest
+    ): Call<SetPreferenceResponse>
+
     // -----------------------------------------------------------------------
     //    COMPANIES API
 //    @GET("company/all")
@@ -54,8 +64,12 @@ interface ApiService {
     //  ---------------------------------------------------------------------
 //    REVIEW API
 
+    //    @GET("review/feed")
+//    fun getReviewFeed(): Call<ReviewFeedResponse>
     @GET("review/feed")
-    fun getReviewFeed(): Call<ReviewFeedResponse>
+    fun getFeedData(
+        @Query("top_n") topN: Int = 10
+    ): Call<FeedResponse>
 
 
     @POST("review/")
@@ -65,7 +79,7 @@ interface ApiService {
 
     @Multipart
     @POST("review/offer")
-     fun uploadOfferLetter(
+    fun uploadOfferLetter(
         @Part file: MultipartBody.Part
     ): Call<UploadOfferResponse>
 
@@ -73,4 +87,17 @@ interface ApiService {
     fun getReviewDetail(
         @Path("reviewId") reviewId: String
     ): Call<CompanyResponseItem>
+
+
+    //  ---------------------------------------------------------------------
+//    COMPARE API
+
+    @GET("compare/roles")
+    fun getRoles(): Call<RolesResponse>
+
+    @GET("compare/industries")
+    fun getIndustries(): Call<IndustriesResponse>
+
+    @GET("compare/locations")
+    fun getLocations(): Call<LocationsResponse>
 }

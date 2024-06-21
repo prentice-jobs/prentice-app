@@ -1,15 +1,18 @@
-package com.prenticedev.prenticeapp.ui
+package com.prenticedev.prenticeapp.ui.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.prenticedev.prenticeapp.R
 import com.prenticedev.prenticeapp.data.local.model.ReviewModel
 import com.prenticedev.prenticeapp.databinding.FragmentForyouBinding
+import com.prenticedev.prenticeapp.ui.activity.SetUserPreferencesActivity
 import com.prenticedev.prenticeapp.ui.adapter.ReviewCompanyAdapter
 import com.prenticedev.prenticeapp.ui.viewmodel.ForYouViewModel
 import com.prenticedev.prenticeapp.ui.viewmodel.ViewModelFactory
@@ -28,9 +31,12 @@ class ForyouFragment : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         binding = FragmentForyouBinding.inflate(inflater, container, false)
-//        showRecyclerList()
         showLoading()
+        showRecyclerList()
 
+        binding.btnAddPreference.setOnClickListener {
+            startActivity(Intent(requireActivity(), SetUserPreferencesActivity::class.java))
+        }
         return binding.root
     }
 
@@ -43,20 +49,54 @@ class ForyouFragment : Fragment() {
     private fun checkLoadingStatus(isLoading: Boolean) {
         if (isLoading) {
             binding.progressBar.visibility = View.VISIBLE
+            binding.addPrefWarning.visibility = View.GONE
             binding.rvForyou.visibility = View.GONE
         } else {
             binding.progressBar.visibility = View.GONE
+            binding.addPrefWarning.visibility = View.VISIBLE
             binding.rvForyou.visibility = View.VISIBLE
         }
     }
 
     private fun showRecyclerList() {
-        forYouViewModel.reviewFeedDataResponse.observe(viewLifecycleOwner) {
-            binding.rvForyou.layoutManager = LinearLayoutManager(activity)
-            val reviewAdapter = ReviewCompanyAdapter()
-            reviewAdapter.submitList(it)
-            binding.rvForyou.adapter = reviewAdapter
+        forYouViewModel.reviewFeedResponse.observe(viewLifecycleOwner) { feedData ->
+            feedData?.let {
+                if (it.status == 200) {
+                    binding.addPrefWarning.visibility = View.GONE
+                    binding.rvForyou.layoutManager = LinearLayoutManager(activity)
+                    val feedAdapter = ReviewCompanyAdapter()
+                    feedAdapter.submitList(it.data)
+                    binding.rvForyou.adapter = feedAdapter
+                } else {
+                    showToast("Error: ${it.message.toString()}")
+                }
+            } ?: run {
+                binding.rvForyou.visibility = View.GONE
+                binding.addPrefWarning.visibility = View.VISIBLE
+            }
+//            if (feedData.data != null) {
+//                binding.addPrefWarning.visibility = View.GONE
+//                binding.rvForyou.layoutManager = LinearLayoutManager(activity)
+//                val feedAdapter = ReviewCompanyAdapter()
+//                feedAdapter.submitList(feedData.data)
+//                binding.rvForyou.adapter = feedAdapter
+//            } else {
+//                binding.rvForyou.visibility = View.GONE
+//                binding.addPrefWarning.visibility = View.VISIBLE
+//            }
+//            feedAdapter.submitList(it.data)
+//            binding.rvForyou.adapter = feedAdapter
         }
+//        forYouViewModel.reviewFeedDataResponse.observe(viewLifecycleOwner) {
+//            binding.rvForyou.layoutManager = LinearLayoutManager(activity)
+//            val reviewAdapter = ReviewCompanyAdapter()
+//            reviewAdapter.submitList(it)
+//            binding.rvForyou.adapter = reviewAdapter
+//        }
+    }
+
+    private fun showToast(msg: String) {
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
     }
 
     private fun getReviewData(): ArrayList<ReviewModel> {
