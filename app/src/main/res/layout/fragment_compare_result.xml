@@ -126,7 +126,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView8">
 
             <EditText
-                android:id="@+id/edit_text_search_roles"
+                android:id="@+id/spinnerSearchRole"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -171,7 +171,7 @@
             app:layout_constraintTop_toBottomOf="@+id/company">
 
             <EditText
-                android:id="@+id/edit_text_search_company"
+                android:id="@+id/spinnerCompany"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

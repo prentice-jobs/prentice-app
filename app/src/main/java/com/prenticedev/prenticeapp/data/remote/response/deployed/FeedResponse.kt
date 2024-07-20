@@ -56,7 +56,7 @@ data class FeedResponseItems(
 	val updatedAt: String? = null,
 
 	@field:SerializedName("star_rating")
-	val starRating: Int? = null,
+	val starRating: Double? = null,
 
 	@field:SerializedName("annual_salary")
 	val annualSalary: Int? = null,

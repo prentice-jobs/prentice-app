@@ -208,6 +208,7 @@
                 android:id="@+id/edtAnnualSalary"
                 android:layout_width="190dp"
                 android:layout_height="wrap_content"
+                android:inputType="number"
                 android:layout_marginStart="10dp"
                 android:hint="Your annual salary"
                 app:layout_constraintStart_toEndOf="@+id/spinnerCurrency"

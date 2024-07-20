@@ -112,8 +112,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView8">
 
-            <EditText
-                android:id="@+id/edit_text_search_roles"
+            <Spinner
+                android:id="@+id/spinnerSearchRole"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -122,13 +122,13 @@
                 android:inputType="text"
                 android:padding="8dp" />
 
-            <ImageView
-                android:id="@+id/image_view_search"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="Search"
-                android:padding="8dp"
-                android:src="@drawable/ic_search_24" />
+<!--            <ImageView-->
+<!--                android:id="@+id/image_view_search"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:contentDescription="Search"-->
+<!--                android:padding="8dp"-->
+<!--                android:src="@drawable/ic_search_24" />-->
         </LinearLayout>
 
         <TextView
@@ -139,7 +139,6 @@
             android:text="Company"
             android:textSize="20dp"
             android:textColor="@color/black"
-
             android:layout_marginTop="20dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -157,8 +156,8 @@
             app:layout_constraintStart_toStartOf="@+id/viewPager"
             app:layout_constraintTop_toBottomOf="@+id/company">
 
-            <EditText
-                android:id="@+id/edit_text_search_company"
+            <Spinner
+                android:id="@+id/spinnerCompany"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -167,13 +166,13 @@
                 android:inputType="text"
                 android:padding="8dp" />
 
-            <ImageView
-                android:id="@+id/image_view_search_company"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="Search"
-                android:padding="8dp"
-                android:src="@drawable/ic_search_24" />
+<!--            <ImageView-->
+<!--                android:id="@+id/image_view_search_company"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:contentDescription="Search"-->
+<!--                android:padding="8dp"-->
+<!--                android:src="@drawable/ic_search_24" />-->
         </LinearLayout>
 
         <TextView
@@ -201,7 +200,7 @@
             app:layout_constraintStart_toStartOf="@+id/viewPager"
             app:layout_constraintTop_toBottomOf="@+id/datePosted">
 
-            <EditText
+            <com.prenticedev.prenticeapp.ui.customview.CustomDatePicker
                 android:id="@+id/edit_text_input_date"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -211,13 +210,13 @@
                 android:inputType="text"
                 android:padding="8dp" />
 
-            <ImageView
-                android:id="@+id/image_view_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="Search"
-                android:padding="8dp"
-                android:src="@drawable/baseline_date_range_24" />
+<!--            <ImageView-->
+<!--                android:id="@+id/image_view_date"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:contentDescription="Search"-->
+<!--                android:padding="8dp"-->
+<!--                android:src="@drawable/baseline_date_range_24" />-->
         </LinearLayout>
 
         <Button

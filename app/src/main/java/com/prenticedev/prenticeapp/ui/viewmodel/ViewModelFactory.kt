@@ -43,6 +43,14 @@ class ViewModelFactory private constructor(
                 SetUserPreferencesViewModel(userRepository) as T
             }
 
+            modelClass.isAssignableFrom(CompareFragmentViewModel::class.java)->{
+                CompareFragmentViewModel(userRepository) as T
+            }
+
+            modelClass.isAssignableFrom(CompareRole2ViewModel::class.java)->{
+                CompareRole2ViewModel(userRepository) as T
+            }
+
             else -> throw IllegalArgumentException("Unknown Model Class: " + modelClass.name)
         }
     }

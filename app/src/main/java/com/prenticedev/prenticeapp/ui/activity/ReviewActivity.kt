@@ -140,6 +140,7 @@ class ReviewActivity : AppCompatActivity() {
         val annualSalary = binding.edtAnnualSalary.text.toString()
 
         currentImageUri?.let { uri ->
+            showLoading(true)
             val imFile = uriToFile(uri, this).reduceImage()
             reviewViewModel.uploadOfferLetterImage(imFile)
 
@@ -160,6 +161,9 @@ class ReviewActivity : AppCompatActivity() {
                     binding.spinnerCurrency.selectedItem.toString()
                 )
 
+            }
+            reviewViewModel.isLoading.observe(this){
+                showLoading(it)
             }
         } ?: showToast("Please Add Offer Letter Image")
 

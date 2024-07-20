@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.prenticedev.prenticeapp.data.remote.response.deployed.FeedResponseItems
 import com.prenticedev.prenticeapp.databinding.RvItemCompanyReviewBinding
 import com.prenticedev.prenticeapp.ui.activity.DetailReviewActivity
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class ReviewCompanyAdapter : ListAdapter<FeedResponseItems, ReviewCompanyAdapter.MyViewHolder>(
     DIFF_CALLBACK
@@ -17,11 +20,12 @@ class ReviewCompanyAdapter : ListAdapter<FeedResponseItems, ReviewCompanyAdapter
         RecyclerView.ViewHolder(binding.root) {
         fun bind(item: FeedResponseItems) {
 //            binding.tvUser.text = item.authorId
+            val formattedDate =formatDate(item.createdAt.toString())
             binding.tvReviewTitle.text = item.title
             binding.tvReviewerRole.text = item.role
             binding.tvReviewContent.text = item.description
             binding.tvUserLoc.text = item.location
-            binding.tvTimeAdded.text = item.createdAt
+            binding.tvTimeAdded.text = formattedDate
             with(itemView) {
                 setOnClickListener {
                     Intent(context, DetailReviewActivity::class.java).apply {
@@ -31,6 +35,19 @@ class ReviewCompanyAdapter : ListAdapter<FeedResponseItems, ReviewCompanyAdapter
                 }
             }
 
+        }
+
+        private fun formatDate(dateString: String): String {
+            return try {
+                val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX", Locale.getDefault())
+                val outputFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+
+                val date: Date = inputFormat.parse(dateString) ?: Date()
+
+                outputFormat.format(date)
+            } catch (e: Exception) {
+                dateString
+            }
         }
     }
 

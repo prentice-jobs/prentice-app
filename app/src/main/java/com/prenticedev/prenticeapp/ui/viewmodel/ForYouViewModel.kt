@@ -48,29 +48,6 @@ class ForYouViewModel(private val userRepository: UserRepository) : ViewModel() 
         }
     }
 
-//    fun getFeedData() {
-//        _isLoading.value = true
-//        viewModelScope.launch {
-//            try {
-//                val apiService = ApiConfig.getApiService()
-//                val response = withContext(Dispatchers.IO) {
-//                    apiService.getReviewFeed().execute()
-//                }
-//                if (response.isSuccessful) {
-//                    _reviewFeedResponse.value = response.body()?.data?.filterNotNull()
-//                } else {
-//                    Log.e(TAG, "Failed to fetch feed data ${response.errorBody()?.toString()}")
-//                }
-//            } catch (e: HttpException) {
-//                Log.e(TAG, "Failed to fetch feed data ${e.message()}")
-//
-//            } finally {
-//                _isLoading.value = false
-//            }
-//
-//        }
-//    }
-
     companion object {
         private val TAG = ForYouViewModel::class.java.simpleName
     }
