@@ -20,6 +20,15 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+       getByName("debug"){
+           storeFile = file("C:/Users/ASUS/.android/debug.keystore")
+           storePassword = "android"
+           keyAlias = "AndroidDebugKey"
+           keyPassword = "android"
+       }
+    }
+
     buildFeatures {
         viewBinding = true
     }
@@ -31,6 +40,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {
@@ -57,16 +69,19 @@ dependencies {
     implementation(libs.androidx.credentials.play.services.auth)
 
 
+
     implementation(libs.glide)
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation(libs.logging.interceptor)
 
+    implementation("androidx.work:work-runtime-ktx:2.7.1")
     implementation(platform(libs.firebase.bom))
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.auth.ktx)
     implementation(libs.play.services.auth)
     implementation(libs.firebase.auth)
+    implementation (libs.androidx.paging.runtime.ktx)
 
     implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation(libs.androidx.datastore)

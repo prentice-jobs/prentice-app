@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_container_1"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.CompareFragment">
+    tools:context=".ui.fragment.CompareFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,11 +14,55 @@
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayout"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="120dp"
             android:overScrollMode="never"
             app:layout_constraintEnd_toStartOf="@+id/button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/jobsPage1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/jobs_purple"
+            app:layout_constraintHorizontal_bias="0.2"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tabLayout" />
+
+        <TextView
+            android:id="@+id/role1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Role 1"
+            android:textColor="#6200EE"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/jobsPage1"
+            app:layout_constraintStart_toStartOf="@+id/jobsPage1"
+            app:layout_constraintTop_toBottomOf="@+id/jobsPage1" />
+
+        <ImageView
+            android:id="@+id/jobsPage2"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="20dp"
+            android:src="@drawable/jobs"
+            app:layout_constraintHorizontal_bias="0.80"
+            app:layout_constraintEnd_toEndOf="@+id/tabLayout"
+            app:layout_constraintStart_toStartOf="@+id/tabLayout"
+            app:layout_constraintTop_toTopOf="@+id/tabLayout" />
+        <TextView
+            android:id="@+id/role2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Role 2"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/jobsPage2"
+            app:layout_constraintStart_toStartOf="@+id/jobsPage2"
+            app:layout_constraintTop_toBottomOf="@+id/jobsPage2" />
+
 
         <Button
             android:id="@+id/button"
@@ -26,6 +71,9 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:text="@string/btn_compare"
+            android:enabled="false"
+            android:backgroundTint="@color/grey"
+            app:layout_constraintBottom_toBottomOf="@+id/tabLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -37,6 +85,151 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:text="Role"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/search_background"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8">
+
+            <Spinner
+                android:id="@+id/spinnerSearchRole"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="Search roles"
+                android:inputType="text"
+                android:padding="8dp" />
+
+<!--            <ImageView-->
+<!--                android:id="@+id/image_view_search"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:contentDescription="Search"-->
+<!--                android:padding="8dp"-->
+<!--                android:src="@drawable/ic_search_24" />-->
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/company"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Company"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
+        <LinearLayout
+            android:id="@+id/searchCompany"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/search_background"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/viewPager"
+            app:layout_constraintTop_toBottomOf="@+id/company">
+
+            <Spinner
+                android:id="@+id/spinnerCompany"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="Search company"
+                android:inputType="text"
+                android:padding="8dp" />
+
+<!--            <ImageView-->
+<!--                android:id="@+id/image_view_search_company"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:contentDescription="Search"-->
+<!--                android:padding="8dp"-->
+<!--                android:src="@drawable/ic_search_24" />-->
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/datePosted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date Posted"
+            android:textSize="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchCompany" />
+
+        <LinearLayout
+            android:id="@+id/datePostedLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/search_background"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/viewPager"
+            app:layout_constraintTop_toBottomOf="@+id/datePosted">
+
+            <com.prenticedev.prenticeapp.ui.customview.CustomDatePicker
+                android:id="@+id/edit_text_input_date"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="Input date"
+                android:inputType="text"
+                android:padding="8dp" />
+
+<!--            <ImageView-->
+<!--                android:id="@+id/image_view_date"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:contentDescription="Search"-->
+<!--                android:padding="8dp"-->
+<!--                android:src="@drawable/baseline_date_range_24" />-->
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonConfirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/viewPager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datePostedLayout" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

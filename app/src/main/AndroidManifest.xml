@@ -13,27 +13,31 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PrenticeApp"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".ui.CommentReviewActivity"
+            android:name=".ui.activity.SetUserPreferencesActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.DetailReviewActivity"
+            android:name=".ui.activity.CommentReviewActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.UserProfileActivity"
+            android:name=".ui.activity.DetailReviewActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.ReviewActivity"
+            android:name=".ui.activity.UserProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.CompanyExploreDetailActivity"
+            android:name=".ui.activity.ReviewActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".ui.activity.CompanyExploreDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.SignInActivity"
+            android:name=".ui.activity.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.activity.SignInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

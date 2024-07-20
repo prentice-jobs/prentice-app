@@ -6,30 +6,47 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.prenticedev.prenticeapp.data.local.model.ReviewModel
+import com.prenticedev.prenticeapp.data.remote.response.deployed.FeedResponseItems
 import com.prenticedev.prenticeapp.databinding.RvItemCompanyReviewBinding
-import com.prenticedev.prenticeapp.ui.DetailReviewActivity
+import com.prenticedev.prenticeapp.ui.activity.DetailReviewActivity
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
-class ReviewCompanyAdapter : ListAdapter<ReviewModel, ReviewCompanyAdapter.MyViewHolder>(
+class ReviewCompanyAdapter : ListAdapter<FeedResponseItems, ReviewCompanyAdapter.MyViewHolder>(
     DIFF_CALLBACK
 ) {
     class MyViewHolder(private val binding: RvItemCompanyReviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ReviewModel) {
-            Glide.with(itemView.context).load(item.userPhoto).into(binding.imUserReviewer)
+        fun bind(item: FeedResponseItems) {
+//            binding.tvUser.text = item.authorId
+            val formattedDate =formatDate(item.createdAt.toString())
+            binding.tvReviewTitle.text = item.title
             binding.tvReviewerRole.text = item.role
-            binding.tvReviewerStatus.text = item.status
-            binding.tvUser.text = item.userName
+            binding.tvReviewContent.text = item.description
             binding.tvUserLoc.text = item.location
-            binding.tvReviewTitle.text = item.reviewTitle
-            binding.tvReviewContent.text = item.reviewContent
+            binding.tvTimeAdded.text = formattedDate
             with(itemView) {
                 setOnClickListener {
                     Intent(context, DetailReviewActivity::class.java).apply {
+                        putExtra(DetailReviewActivity.EXTRA_ID, item.id)
                         context.startActivity(this)
                     }
                 }
+            }
+
+        }
+
+        private fun formatDate(dateString: String): String {
+            return try {
+                val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSSSSXXX", Locale.getDefault())
+                val outputFormat = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
+
+                val date: Date = inputFormat.parse(dateString) ?: Date()
+
+                outputFormat.format(date)
+            } catch (e: Exception) {
+                dateString
             }
         }
     }
@@ -49,12 +66,18 @@ class ReviewCompanyAdapter : ListAdapter<ReviewModel, ReviewCompanyAdapter.MyVie
     }
 
     companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<ReviewModel>() {
-            override fun areContentsTheSame(oldItem: ReviewModel, newItem: ReviewModel): Boolean {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<FeedResponseItems>() {
+            override fun areContentsTheSame(
+                oldItem: FeedResponseItems,
+                newItem: FeedResponseItems
+            ): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areItemsTheSame(oldItem: ReviewModel, newItem: ReviewModel): Boolean {
+            override fun areItemsTheSame(
+                oldItem: FeedResponseItems,
+                newItem: FeedResponseItems
+            ): Boolean {
                 return oldItem == newItem
             }
         }

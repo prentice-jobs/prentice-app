@@ -11,6 +11,7 @@ import com.prenticedev.prenticeapp.R
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
+import java.util.TimeZone
 
 class CustomDatePicker @JvmOverloads constructor(
     context: Context,
@@ -59,8 +60,9 @@ class CustomDatePicker @JvmOverloads constructor(
     }
 
     private fun updateView() {
-        val calFormat = "MM/dd/yyyy"
+        val calFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         val sdf = SimpleDateFormat(calFormat, Locale.getDefault())
+        sdf.timeZone = TimeZone.getTimeZone("UTC")
         setText(sdf.format(cal.time))
     }
 }

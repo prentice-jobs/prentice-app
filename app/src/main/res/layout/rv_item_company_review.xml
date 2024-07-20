@@ -42,6 +42,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/tvTimeAdded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="2w ago"
@@ -71,6 +72,8 @@
             android:text="Intern"
             app:layout_constraintStart_toEndOf="@+id/tvReviewerRole"
             app:layout_constraintTop_toBottomOf="@+id/imUserReviewer" />
+
+
 
         <TextView
             android:id="@+id/tvReviewTitle"

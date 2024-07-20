@@ -10,7 +10,7 @@
     <string name="btn_sign_google">Sign In With Google</string>
     <string name="app_slogan">Find your perfect internship</string>
     <string name="img_signin_desc">Prentice Image Sign In</string>
-    <string name="web_client_id">443570736261-10gtk23j6v4f8f0co720du1e5053mmf8.apps.googleusercontent.com</string>
+    <string name="web_client_id">1065032556285-lmns8ubrh8k2do1d1bb2uk6nkd9hsdtg.apps.googleusercontent.com</string>
     <string name="tv_app_title">Prentice</string>
     <string name="app_icon">App Logo</string>
     <string name="btn_startup">Startup</string>
@@ -19,8 +19,8 @@
     <string name="btn_fmcg">FMCG</string>
     <string name="btn_govt">GOVT</string>
     <string name="btn_compare">Compare</string>
-  
-  
+
+
     <string-array name="company_location">
         <item>Jakarta</item>
         <item>Jakarta</item>
@@ -73,6 +73,12 @@
         <item>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</item>
     </string-array>
 
+    <declare-styleable name="SentimentView">
+        <attr name="sentimentText" format="string" />
+        <attr name="sentimentScore" format="float" />
+        <attr name="sentimentColor" format="color" />
+    </declare-styleable>
+
     <string-array name="company_name">
         <item>Prentice Corp.</item>
         <item>Gojek</item>
@@ -100,11 +106,11 @@
     <string name="text_add_review_button">Add Review</string>
     <string name="tv_review_title">Tempat review yang bagus</string>
     <string name="text_user_profile">User Profile</string>
-    <string name="text_prefered_location">Prefered Location</string>
+    <string name="text_prefered_location">Preferred Location</string>
     <string name="text_save_changes">Save Changes</string>
     <string name="text_sign_out">Sign Out</string>
     <string name="btn_add_offer_letter">Pick Files</string>
-    <string name="text_attachment_name">No offer letter is attached</string>
+    <string name="text_attachment_name">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aperiam at beatae distinctio dolorem eius ex exercitationem impedit in incidunt libero nesciunt provident, quam quis quisquam, repudiandae tenetur ut vel.</string>
     <string name="text_review_detail">Review Detail</string>
     <string name="text_review_company_content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores cumque deserunt eaque, eum nam rem soluta. Corporis eum laudantium minima. Blanditiis doloribus earum exercitationem fugit laboriosam maiores, minima temporibus totam?</string>
     <string name="text_reviewer_role">Software Engineer</string>
@@ -120,6 +126,12 @@
         <item>Database Administrator</item>
         <item>Mobile Developer</item>
         <item>QA Engineer</item>
+    </string-array>
+
+    <string-array name="spinner_items_currency">
+        <item>IDR</item>
+        <item>USD</item>
+        <item>JPY</item>
     </string-array>
 
     <string-array name="company_rating">

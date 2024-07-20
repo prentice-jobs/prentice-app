@@ -15,11 +15,7 @@ class CommentReviewAdapter :
         fun bind(item: CommentModel) {
             binding.tvUserComment.text = item.name
             binding.tvCommentContent.text = item.comment
-            with(binding.btnLike) {
-                setOnClickListener {
 
-                }
-            }
         }
     }
 

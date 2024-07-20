@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.UserProfileActivity">
+    tools:context=".ui.activity.UserProfileActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/appBar"
@@ -15,6 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -27,6 +28,7 @@
                 android:layout_marginTop="3dp"
                 android:background="@null"
                 android:src="@drawable/baseline_keyboard_arrow_left_24" />
+
             <TextView
                 android:id="@+id/tvCompanyTitle"
                 android:layout_width="wrap_content"
@@ -37,27 +39,28 @@
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
 
+
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imProfile"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="15dp"
-        tools:src="@tools:sample/avatars"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBar" />
+        app:layout_constraintTop_toBottomOf="@+id/appBar"
+        tools:src="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/tvUserProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_user_profile"
-        app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"
+        android:text="@string/text_user_profile"
         android:textSize="25sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imProfile"/>
+        app:layout_constraintTop_toBottomOf="@id/imProfile" />
 
     <TextView
         android:id="@+id/tvUID"
@@ -68,42 +71,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvUserProfile" />
 
-    <TextView
-        android:id="@+id/tvPrefLoc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginStart="20dp"
-        android:text="@string/text_prefered_location"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvUID" />
 
-    <EditText
-        android:id="@+id/edtPrefLoc"
-        android:layout_marginStart="20dp"
-        android:layout_width="280dp"
-        android:text="Jakarta"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvPrefLoc" />
+<!--    <TextView-->
+<!--        android:id="@+id/tvPrefLoc"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:layout_marginTop="18dp"-->
+<!--        android:text="@string/text_prefered_location"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/tvUID" />-->
 
-    <Button
-        android:id="@+id/btnConfirm"
-        android:layout_width="wrap_content"
-        android:layout_marginStart="20dp"
-        android:visibility="gone"
-        android:layout_height="wrap_content"
-        android:text="@string/text_save_changes"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtPrefLoc" />
+<!--    <EditText-->
+<!--        android:id="@+id/edtPrefLoc"-->
+<!--        android:layout_width="280dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:text="Jakarta"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvPrefLoc" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnConfirm"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="20dp"-->
+<!--        android:text="@string/text_save_changes"-->
+<!--        android:visibility="gone"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/edtPrefLoc" />-->
 
     <Button
         android:id="@+id/btnLogout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/text_sign_out"
         android:layout_marginTop="80dp"
+        android:text="@string/text_sign_out"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnConfirm" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUID" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
